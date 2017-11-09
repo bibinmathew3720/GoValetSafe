@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupAppSettings(application:UIApplication){
         IQKeyboardManager.sharedManager().enable = true
-        application.statusBarHidden = false
+        //application.statusBarHidden = false
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor =  UIColor.whiteColor()
         navigationBarAppearace.barTintColor = UIColor(red:0.13, green:0.14, blue:0.14, alpha:1)
