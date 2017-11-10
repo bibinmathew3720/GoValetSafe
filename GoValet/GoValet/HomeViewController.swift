@@ -586,7 +586,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             if currentLanguage == "ar-US"{
                 avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقائق"
             }
-            _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "HomeViewController.update", userInfo: nil, repeats: true)
+            _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
         }
     }
     
