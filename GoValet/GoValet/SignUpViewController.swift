@@ -107,7 +107,7 @@ class SignUpViewController: UIViewController,TOCropViewControllerDelegate,UIText
         super.viewDidLoad()
         self.navigationController?.navigationBar.hidden = false
         self.title = "SIGN UP"
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "SignUpViewController.back(_:)")
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("back:"))
         self.navigationItem.leftBarButtonItem = newBackButton
 
         let myString: String = "By Clicking Confirm You Agree To Go Valet Terms Of Use And Privacy Policy.".localized
