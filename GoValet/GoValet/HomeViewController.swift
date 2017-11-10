@@ -172,7 +172,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         self.enablePushnotification()
         self.getValetRequestDetails()
         self.timerForGetRequestApiDetails()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.sideMenuOpen", name: "SideMenuOpenNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("sideMenuOpen:"), name: "SideMenuOpenNotification", object: nil)
         hotelListTable.tableFooterView = UIView()
         hotelListTable.separatorColor = UIColor(red:0.24, green:0.24, blue:0.25, alpha:1)
         hotelListTable.hidden = true
@@ -607,7 +607,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
     }
     
     func timerForGetRequestApiDetails(){
-        recursiveApiCallingTImer = NSTimer.scheduledTimerWithTimeInterval(KValetRequestTimerTime, target: self, selector: "HomeViewController.callGetRequestApiDetailsAPI", userInfo: nil, repeats: true)
+        recursiveApiCallingTImer = NSTimer.scheduledTimerWithTimeInterval(KValetRequestTimerTime, target: self, selector: Selector("callGetRequestApiDetailsAPI"), userInfo: nil, repeats: true)
     }
     
     func callGetRequestApiDetailsAPI(){

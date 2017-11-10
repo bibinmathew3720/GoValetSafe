@@ -83,7 +83,7 @@ class ProfileEditViewController: UIViewController,TOCropViewControllerDelegate,U
         self.addLogo()
         self.title = "EDIT ACCOUNT".localized
         self.changeNavTitleColor()
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "SignUpViewController.back(_:)")
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("back:"))
         self.navigationItem.leftBarButtonItem = newBackButton
         carListTable.tableFooterView = UIView()
         profileImageView.layer.cornerRadius = 15.0

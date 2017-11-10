@@ -134,7 +134,7 @@ class ManagerHomeViewController: BaseViewController,UITableViewDataSource, UITab
         self.showAppThemeNavigationBar = true
         super.viewDidLoad()
         self.addLogo()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.sideMenuOpen", name: "SideMenuOpenNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("sideMenuOpen:"), name: "SideMenuOpenNotification", object: nil)
         popupConterView.layer.cornerRadius = 5.0
         homeMainViewContiner.hidden = false
         popupConterView.hidden = false
@@ -238,7 +238,7 @@ class ManagerHomeViewController: BaseViewController,UITableViewDataSource, UITab
     }
     
     func timerForGetAllRequest(){
-        _ = NSTimer.scheduledTimerWithTimeInterval(KValetMaangerRequestTimerTime, target: self, selector: "HomeViewController.callGetRequestApiDetailsAPI", userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(KValetMaangerRequestTimerTime, target: self, selector: Selector("callGetRequestApiDetailsAPI"), userInfo: nil, repeats: true)
     }
     
     func callGetRequestApiDetailsAPI(){

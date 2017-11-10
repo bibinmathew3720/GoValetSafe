@@ -41,7 +41,7 @@ class BaseViewController: UIViewController  {
     func showCustomAppThemeNavigationBar(){
     
         let profileButton:UIButton = UIButton(type: UIButtonType.Custom)  
-        profileButton.addTarget(self, action: "BaseViewController.profileButtonClicked", forControlEvents: UIControlEvents.TouchUpInside)
+        profileButton.addTarget(self, action: Selector("profileButtonClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         let backBtnImg: UIImage = UIImage(named: "Menu")!
         profileButton.setImage(backBtnImg, forState: UIControlState.Normal)
         profileButton.frame = CGRectMake(-30, 0, 25, 45)
