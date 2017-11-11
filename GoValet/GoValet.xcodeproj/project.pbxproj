@@ -60,6 +60,8 @@
 		48ED12991E6B2F2C00303072 /* getit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ED129B1E6B2F2C00303072 /* getit@3x.png */; };
 		A082530C3D1BBB3B57672D5E /* Pods_GoValet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A583839BBECD5039BDA012 /* Pods_GoValet.framework */; };
 		C12C183E5C21F17C757FE6FD /* Pods_GoValetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3809C015FA44E7C84E35CCF /* Pods_GoValetUITests.framework */; };
+		D05033671FB691790010D177 /* ManagePaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05033661FB691790010D177 /* ManagePaymentCell.swift */; };
+		D05033691FB69D120010D177 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05033681FB69D120010D177 /* PaymentVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		59A583839BBECD5039BDA012 /* Pods_GoValet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoValet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0028B088245C5969D39BEF6 /* Pods-GoValetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoValetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoValetUITests/Pods-GoValetUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A3809C015FA44E7C84E35CCF /* Pods_GoValetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoValetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D05033661FB691790010D177 /* ManagePaymentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagePaymentCell.swift; sourceTree = "<group>"; };
+		D05033681FB69D120010D177 /* PaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 		E59BEB52B4A23FE646F820EC /* Pods-GoValetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoValetUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoValetUITests/Pods-GoValetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD0381D29FF041D4FA980B0F /* Pods-GoValet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoValet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoValet/Pods-GoValet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +261,8 @@
 			children = (
 				483E43D11E158BF2002304E8 /* PaymentViewController.swift */,
 				4870D3901E561F170096DA63 /* WebViewViewController.swift */,
+				D05033661FB691790010D177 /* ManagePaymentCell.swift */,
+				D05033681FB69D120010D177 /* PaymentVC.swift */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -782,10 +788,12 @@
 				4800CD0E1E051DD90024F9B0 /* BaseViewController.swift in Sources */,
 				4812F48A1E1EA6F1009B7E7F /* ProfileViewController.swift in Sources */,
 				488212651E01285200D3BE30 /* AppDelegate.swift in Sources */,
+				D05033691FB69D120010D177 /* PaymentVC.swift in Sources */,
 				487FA5251E02731F00CE5322 /* LoginWebService.swift in Sources */,
 				487FA5201E0272F500CE5322 /* SignUpViewController.swift in Sources */,
 				487FA5241E02731F00CE5322 /* LoginServiceManager.swift in Sources */,
 				483E43CF1E13CC65002304E8 /* HotelListCell.swift in Sources */,
+				D05033671FB691790010D177 /* ManagePaymentCell.swift in Sources */,
 				488212A31E01309300D3BE30 /* AppSharedInfo.swift in Sources */,
 				483E43C81E13B6F9002304E8 /* UserServiceTaskManager.swift in Sources */,
 				483FF9901E31105400E2236B /* HistoryViewController.swift in Sources */,

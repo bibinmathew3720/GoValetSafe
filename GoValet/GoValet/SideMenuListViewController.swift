@@ -45,7 +45,7 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
         if UserInfo.currentUser()?.userType == "valet_manager"{
             return 4
         }else{
-            return 5
+            return 6
         }
     }
     
@@ -88,7 +88,7 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
                     menuCell.menuTitleLbl.text  = "Settings".localized
                     menuCell.menuImageView.image = UIImage(named:"Settings")
                 }else{
-                    menuCell.menuTitleLbl.text  = "History".localized
+                    menuCell.menuTitleLbl.text  = "Manage Cards".localized
                     menuCell.menuImageView.image = UIImage(named:"History")
                 }
 
@@ -97,11 +97,14 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
                     menuCell.menuTitleLbl.text  = "Help".localized
                     menuCell.menuImageView.image = UIImage(named:"Help")
                 }else{
-                    menuCell.menuTitleLbl.text  = "Help".localized
-                    menuCell.menuImageView.image = UIImage(named:"Help")
+                    menuCell.menuTitleLbl.text  = "History".localized
+                    menuCell.menuImageView.image = UIImage(named:"History")
                 }
 
             case 4:
+                menuCell.menuTitleLbl.text  = "Help".localized
+                menuCell.menuImageView.image = UIImage(named:"Help")
+            case 5:
                 menuCell.menuTitleLbl.text  = "Settings".localized
                 menuCell.menuImageView.image = UIImage(named:"Settings")
 
@@ -134,28 +137,31 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
                     self.showPasswordConfirmAlert()
                 }
             case 2:
-                var myDict = ["menu": "3"]
-                if UserInfo.currentUser()?.userType == "valet_manager"{
-                    myDict = ["menu": "1"]
-                }
-
-//                self.dismissViewControllerAnimated(true, completion: nil)
-                NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
-                self.closeMenu()
+                    //var myDict = ["menu": "3"]
+                    var myDict = ["menu": "4"]
+                    if UserInfo.currentUser()?.userType == "valet_manager"{
+                        myDict = ["menu": "1"]
+                    }
+                    NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
+                    self.closeMenu()
             case 3:
-                UIApplication.sharedApplication().openURL(NSURL(string: "https://www.google.com")!)
+                if UserInfo.currentUser()?.userType == "valet_manager"{
+                    UIApplication.sharedApplication().openURL(NSURL(string: "https://www.google.com")!)
+                }
+                else{
+                    let myDict = ["menu": "3"]
+                    NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
+                       self.closeMenu()
+                }
 //                let myDict = ["menu": "4"]
 //                self.dismissViewControllerAnimated(true, completion: nil)
 //                NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
             case 4:
+                    UIApplication.sharedApplication().openURL(NSURL(string: "https://www.google.com")!)
+            case 5:
                 let myDict = ["menu": "1"]
                 NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
                 self.closeMenu()
-
-//                titleStr = "FAQ"
-            case 5:
-                titleStr = "Logout".localized
-                self.showLogoutConfirmAlert()
             case 6:
                 titleStr = "About Us"
             case 7:
