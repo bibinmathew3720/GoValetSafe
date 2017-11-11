@@ -11,4 +11,12 @@ import UIKit
 class ManagePaymentCell: UICollectionViewCell {
     
     @IBOutlet weak var paymentLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.borderColor = UIColor.whiteColor().CGColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 5
+    }
+    
 }
