@@ -565,7 +565,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         case 3:
             let historyVC = self.storyboard?.instantiateViewControllerWithIdentifier("HostoryVC") as! HistoryViewController
             self.navigationController?.pushViewController(historyVC, animated: true)
-        case 4:
+        case 4://For Manage Cards(User)
             let paymentVC = self.storyboard?.instantiateViewControllerWithIdentifier("paymentVC") as! PaymentVC
             self.navigationController?.pushViewController(paymentVC, animated: true)
         default:
