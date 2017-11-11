@@ -89,7 +89,7 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
                     menuCell.menuImageView.image = UIImage(named:"Settings")
                 }else{
                     menuCell.menuTitleLbl.text  = "Manage Cards".localized
-                    menuCell.menuImageView.image = UIImage(named:"History")
+                    menuCell.menuImageView.image = UIImage(named:"ManageCard")
                 }
 
             case 3:
@@ -146,7 +146,7 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
                     self.closeMenu()
             case 3:
                 if UserInfo.currentUser()?.userType == "valet_manager"{
-                    UIApplication.sharedApplication().openURL(NSURL(string: "https://www.google.com")!)
+                    UIApplication.sharedApplication().openURL(NSURL(string: "http://govalet.me/")!)
                 }
                 else{
                     let myDict = ["menu": "3"]
@@ -157,7 +157,7 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
 //                self.dismissViewControllerAnimated(true, completion: nil)
 //                NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
             case 4:
-                    UIApplication.sharedApplication().openURL(NSURL(string: "https://www.google.com")!)
+                    UIApplication.sharedApplication().openURL(NSURL(string: "http://govalet.me/")!)
             case 5:
                 let myDict = ["menu": "1"]
                 NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
@@ -219,8 +219,12 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func showPaymentScreen(){
-        let myDict = ["menu": "2"]
-        NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
+        var myDict = ["menu": "4"]
+         if UserInfo.currentUser()?.userType == "valet_manager"{
+             myDict = ["menu": "2"]
+        }
+        
+    NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
         self.closeMenu()
     }
     
