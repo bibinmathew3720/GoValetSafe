@@ -16,19 +16,36 @@ enum PaymentServiceType {
     case Default
 }
 class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    
+    @IBOutlet weak var subscriptionCollectionView: UICollectionView!
+    @IBOutlet weak var flawLayout: UICollectionViewFlowLayout!
+     @IBOutlet weak var subscriptionHeadingLabel: UILabel!
     let cellItemSpacing:CGFloat = 10.0
     var subscriptionListArray = NSArray()
-    
+    var selectedSubScription:AnyObject?
+    var previousIndex:(NSIndexPath)?
+    var selIndex:(NSIndexPath)?
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        self.addLogo()
+        self.title = "SUBSCRIPTION".localized
+        self.changeNavTitleColor()
+        callingGetSubscriptionsApi()
+        subscriptionCollectionView.registerNib(UINib(nibName: "SubScriptionCell", bundle: nil), forCellWithReuseIdentifier: "subscriptionCell")
+        self.subscriptionHeadingLabel.text = "You are on one month free subscription"
+        
+        
+        
+    }
+    
+    func callingGetSubscriptionsApi(){
+        self.addLoaingIndicator()
+        
         let token = UserInfo.currentUser()?.token
         var params = [String: AnyObject]()
         params["device_token"] = token
         params["lang"] = "eng"
-      postServiceWithApiType(params, type: .GetSubscriptionList)
-        
-        // Do any additional setup after loading the view.
+        postServiceWithApiType(params, type: .GetSubscriptionList)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,21 +64,43 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let paymentCell:ManagePaymentCell = collectionView.dequeueReusableCellWithReuseIdentifier("paymentCell", forIndexPath: indexPath) as! ManagePaymentCell
-        //paymentCell.paymentLabel.text =
+        let paymentCell:SubScriptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("subscriptionCell", forIndexPath: indexPath) as! SubScriptionCell
+        let paymentDetails = self.subscriptionListArray.objectAtIndex(indexPath.row)
+        let title:String = paymentDetails["title"] as! String
+        let cost:String = paymentDetails["cost"] as! String
+        paymentCell.subscriptionLabel.text = title+"\n"+"QAR"+cost
+        if selIndex == indexPath{
+            paymentCell.setSelectedBorder()
+        }
+        else{
+            paymentCell.setUnSelectedBorder()
+        }
         return paymentCell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        let paymentDetails = self.subscriptionListArray.objectAtIndex(indexPath.row)
+        selectedSubScription = paymentDetails
+        if (previousIndex != nil){
+            let prevCell:SubScriptionCell = collectionView.cellForItemAtIndexPath(indexPath) as! SubScriptionCell
+            prevCell.setUnSelectedBorder()
+        }
+        previousIndex = indexPath
+        let subCell:SubScriptionCell = collectionView.cellForItemAtIndexPath(indexPath) as! SubScriptionCell
+        subCell.setSelectedBorder()
     }
     
     //MARK: Collection View Delegates
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, 0, 0, 0)
+    }
+    
+    
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-            return 10.0
+            return 0.0
     }
     
     func collectionView(collectionView: UICollectionView, layout
@@ -71,9 +110,15 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: (self.view.frame.width-3*cellItemSpacing)/2, height: 60)
+        print(self.view.frame.width)
+        print((self.view.frame.width-3*cellItemSpacing)/2)
+        return CGSize(width: (collectionView.frame.width-3*cellItemSpacing)/2, height: 60)
     }
     
+    
+    
+    @IBAction func getButtonAction(sender: AnyObject) {
+    }
     
     //Get Subscriptions Api Calling
     
@@ -86,12 +131,14 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         Alamofire.request(.POST,url!, parameters: parameters as? [String : AnyObject], headers:nil)
             .validate()
             .responseJSON {response in
+                self.removeLoadingIndicator()
                 switch response.result{
                 case .Success:
                     if let val = response.result.value {
                         print(val)
                         // print("JSON: \(JSON)")
                         self.subscriptionListArray = val["data"] as! NSArray
+                        self.subscriptionCollectionView.reloadData()
                         print(self.subscriptionListArray)
                     }
                 case .Failure(let error):
