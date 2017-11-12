@@ -127,14 +127,25 @@ class AddCardVC: UIViewController {
                         print(val)
                         // print("JSON: \(JSON)")
                         if(type == .GetAllCards){
-                            self.cardsArray = val["data"] as! NSArray
-                            //self.subscriptionCollectionView.reloadData()
-                            print(self.cardsArray)
+                            if val["data"] is  NSArray {
+                                print("NSArray")
+                                self.cardsArray = val["data"] as! NSArray
+                                //self.subscriptionCollectionView.reloadData()
+                                print(self.cardsArray)
+                            }
+                            if val["data"] is String{
+                                  UtilityMethods.showAlert(val["data"] as! String, tilte: "GoValet", presentVC: self)
+                            }
+                            
                         }
                         else if(type == .AddCardService){
-                            if (val["data"] != nil || (val["data"] as? NSNull) == nil) {
+                            
+                            if val["data"] is String{
                                 self.clearAllTextFields()
-                                UtilityMethods.showAlert(val["data"] as! String, tilte: "GoValet!", presentVC: self)
+                                UtilityMethods.showAlert(val["data"] as! String, tilte: "GoValet", presentVC: self)
+                            }
+                            else if val["error"] is String{
+                                UtilityMethods.showAlert(val["error"] as! String, tilte: "Warning!".localized, presentVC: self)
                             }
                         }
 //                        else if(type == .ChooseSubscription){
