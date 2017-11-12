@@ -138,6 +138,10 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
             postServiceWithApiType(params, type: .ChooseSubscription)
         }
     }
+    @IBAction func managePaymentButtonAction(sender: AnyObject) {
+        let paymentVC = self.storyboard?.instantiateViewControllerWithIdentifier("addCardVC") as! AddCardVC
+        self.navigationController?.pushViewController(paymentVC, animated: true)
+    }
     
     // Api Calling
     

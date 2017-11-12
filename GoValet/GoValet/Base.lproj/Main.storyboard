@@ -5728,6 +5728,9 @@
                                         <include reference="kZL-GE-10f"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="managePaymentButtonAction:" destination="gmc-2W-JYX" eventType="touchUpInside" id="qmj-JJ-EqM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
