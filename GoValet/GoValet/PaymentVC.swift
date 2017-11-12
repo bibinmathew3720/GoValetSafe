@@ -139,7 +139,7 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         }
     }
     
-    //Get Subscriptions Api Calling
+    // Api Calling
     
     func postServiceWithApiType(parameters:AnyObject,type:PaymentServiceType){
         var url:(String)?
