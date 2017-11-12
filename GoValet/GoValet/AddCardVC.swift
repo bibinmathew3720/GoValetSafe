@@ -12,9 +12,10 @@ enum CardServiceType {
     case AddCardService
     case GetAllCards
 }
-class AddCardVC: UIViewController {
+class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     var cardsArray = NSArray()
     
+    @IBOutlet weak var cardsCollectionView: UICollectionView!
     @IBOutlet weak var firstNameTF: CustomTextField!
     @IBOutlet weak var cvvTF: CustomTextField!
     @IBOutlet weak var myCardView: UIView!
@@ -26,6 +27,7 @@ class AddCardVC: UIViewController {
         super.viewDidLoad()
         self.addLogo()
         self.title = "PAYMENT".localized
+        cardsCollectionView.registerNib(UINib(nibName: "CardCell", bundle: nil), forCellWithReuseIdentifier: "cardCell")
         self.changeNavTitleColor()
         self.customisingTextFields()
         getAllCards()
@@ -53,6 +55,58 @@ class AddCardVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Collection View Datasources
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cardsArray.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cardCell:CardCell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCell", forIndexPath: indexPath) as! CardCell
+        let cardDetails = self.cardsArray.objectAtIndex(indexPath.row)
+        let cardNo:String = cardDetails["card_num_disp"] as! String
+        if cardDetails["is_default"] as! String == "1"{
+            cardCell.setAsDefaultButton.hidden = true
+        }
+        else{
+            cardCell.setAsDefaultButton.hidden = false
+        }
+        cardCell.cardNoLabel.text = cardNo
+        return cardCell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+       
+    }
+    
+    //MARK: Collection View Delegates
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, 0, 0, 0)
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+            return 0.0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout
+        collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+            return 5.0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        print(self.view.frame.width)
+        return CGSize(width:collectionView.frame.width, height: 80)
     }
     
     //MARK: Button Actions
@@ -130,7 +184,7 @@ class AddCardVC: UIViewController {
                             if val["data"] is  NSArray {
                                 print("NSArray")
                                 self.cardsArray = val["data"] as! NSArray
-                                //self.subscriptionCollectionView.reloadData()
+                                self.cardsCollectionView.reloadData()
                                 print(self.cardsArray)
                             }
                             if val["data"] is String{
