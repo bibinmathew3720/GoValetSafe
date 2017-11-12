@@ -12,7 +12,7 @@ import SwiftyJSON
 
 enum PaymentServiceType {
     case GetSubscriptionList
-    case Signup
+    case ChooseSubscription
     case Default
 }
 class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
@@ -44,7 +44,14 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         let token = UserInfo.currentUser()?.token
         var params = [String: AnyObject]()
         params["device_token"] = token
-        params["lang"] = "eng"
+        let appLanguage:String = NSUserDefaults.standardUserDefaults().objectForKey("AppleLanguages")![0] as! String
+        if (appLanguage=="en"){
+          params["lang"] = "eng"
+        }
+        else{
+          params["lang"] = "ar"
+        }
+        
         postServiceWithApiType(params, type: .GetSubscriptionList)
     }
 
@@ -118,6 +125,18 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     
     
     @IBAction func getButtonAction(sender: AnyObject) {
+        
+        if(selectedSubScription==nil){
+           UtilityMethods.showAlert("Please Choose Subscription".localized, tilte: "Warning!".localized, presentVC: self)
+        }
+        else{
+            var params = [String: AnyObject]()
+            let token = UserInfo.currentUser()?.token
+            params["device_token"] = token
+            params["sub_id"] = selectedSubScription!["id"]
+            self.addLoaingIndicator()
+            postServiceWithApiType(params, type: .ChooseSubscription)
+        }
     }
     
     //Get Subscriptions Api Calling
@@ -127,7 +146,9 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         if type ==  .GetSubscriptionList{
             url = "\(baseUrl)payment/subscription_list"
         }
-        
+        else if type == .ChooseSubscription{
+            url = "\(baseUrl)payment/subscription_payment"
+        }
         Alamofire.request(.POST,url!, parameters: parameters as? [String : AnyObject], headers:nil)
             .validate()
             .responseJSON {response in
@@ -137,9 +158,16 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
                     if let val = response.result.value {
                         print(val)
                         // print("JSON: \(JSON)")
-                        self.subscriptionListArray = val["data"] as! NSArray
-                        self.subscriptionCollectionView.reloadData()
-                        print(self.subscriptionListArray)
+                        if(type == .GetSubscriptionList){
+                            self.subscriptionListArray = val["data"] as! NSArray
+                            self.subscriptionCollectionView.reloadData()
+                            print(self.subscriptionListArray)
+                        }
+                        else if(type == .ChooseSubscription){
+                            if (val["error"] != nil) {
+                                UtilityMethods.showAlert(val["error"] as! String, tilte: "Warning!".localized, presentVC: self)
+                            }
+                        }
                     }
                 case .Failure(let error):
                     if let data = response.data, let utf8Text = String.init(data: data, encoding: NSUTF8StringEncoding) {
