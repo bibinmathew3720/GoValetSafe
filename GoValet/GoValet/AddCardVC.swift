@@ -12,6 +12,7 @@ enum CardServiceType {
     case AddCardService
     case GetAllCards
     case DeleteCard
+    case SetAsDefaultCard
 }
 class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,CardCellDelegate {
     var cardsArray = NSArray()
@@ -125,6 +126,15 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         postServiceWithApiType(params, type: .DeleteCard)
     }
     func setAsDefaultButtonActionDelegate(cellTag: NSInteger) {
+        
+        let cardDetails = self.cardsArray.objectAtIndex(cellTag)
+        self.addLoaingIndicator()
+        let token = UserInfo.currentUser()?.token
+        var params = [String: AnyObject]()
+        let cardId:String = cardDetails["id"] as! String
+        params["device_token"] = token
+        params["card_id"] = cardId
+        postServiceWithApiType(params, type: .SetAsDefaultCard)
     }
     
     //MARK: Button Actions
@@ -192,6 +202,9 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         else if type == .DeleteCard{
             url = "\(baseUrl)payment/delete_card"
         }
+        else if type == .SetAsDefaultCard{
+            url = "\(baseUrl)payment/set_default_card"
+        }
         Alamofire.request(.POST,url!, parameters: parameters as? [String : AnyObject], headers:nil)
             .validate()
             .responseJSON {response in
@@ -209,7 +222,9 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
                                 print(self.cardsArray)
                             }
                             if val["data"] is String{
-                                  UtilityMethods.showAlert(val["data"] as! String, tilte: "GoValet", presentVC: self)
+                                self.cardsArray = []
+                                self.cardsCollectionView.reloadData()
+                                  //UtilityMethods.showAlert(val["data"] as! String, tilte: "GoValet", presentVC: self)
                             }
                             
                         }
@@ -226,6 +241,17 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
                             }
                         }
                         else if(type == .DeleteCard){
+                            
+                            if val["data"] is String{
+                                self.getAllCards()
+                                UtilityMethods.showAlert(val["data"] as! String, tilte: "GoValet", presentVC: self)
+                                
+                            }
+                            else if val["error"] is String{
+                                UtilityMethods.showAlert(val["error"] as! String, tilte: "Warning!".localized, presentVC: self)
+                            }
+                        }
+                        else if(type == .SetAsDefaultCard){
                             
                             if val["data"] is String{
                                 self.getAllCards()
