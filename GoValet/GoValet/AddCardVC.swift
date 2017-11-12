@@ -9,7 +9,13 @@
 import UIKit
 
 class AddCardVC: UIViewController {
+    @IBOutlet weak var firstNameTF: CustomTextField!
 
+    @IBOutlet weak var cvvTF: CustomTextField!
+    @IBOutlet weak var expiryYearTF: CustomTextField!
+    @IBOutlet weak var expiryMonthTF: CustomTextField!
+    @IBOutlet weak var cardNoTF: CustomTextField!
+    @IBOutlet weak var lastNameTF: CustomTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addLogo()
@@ -24,6 +30,8 @@ class AddCardVC: UIViewController {
     }
     
 
+    @IBAction func addPaymentButtonAction(sender: AnyObject) {
+    }
     /*
     // MARK: - Navigation
 
