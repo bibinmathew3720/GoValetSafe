@@ -5847,25 +5847,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W42-Mz-SUI">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="tPc-UJ-JpI">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="180"/>
-                                    </constraint>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="tPc-UJ-JpI"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="tPc-UJ-JpI"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD A NEW CARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVi-Bx-sVt">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -5882,6 +5863,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="K8o-rh-bIP"/>
@@ -5898,30 +5884,55 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CARD NUMBER" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fiN-cS-wfb" customClass="CustomTextField" customModule="GoValet" customModuleProvider="target">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EXPIRY MONTH" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EFU-Vc-XSp" customClass="CustomTextField" customModule="GoValet" customModuleProvider="target">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EXPIRY YEAR" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C1D-OC-Pj4" customClass="CustomTextField" customModule="GoValet" customModuleProvider="target">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fda-kI-1zU" customClass="CustomTextField" customModule="GoValet" customModuleProvider="target">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcf-ZI-SpB">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -5955,15 +5966,121 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W42-Mz-SUI">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY CARD(S)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsP-jA-rXn">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <color key="backgroundColor" red="0.070588235289999995" green="0.5568627451" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Hrp-r3-a5r">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Hrp-r3-a5r"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="Hrp-r3-a5r"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-8f-Ag4">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WGy-Z0-AMY">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XzU-sy-R6S">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9ay-8f-Ag4" secondAttribute="trailing" constant="60" id="4Gu-OV-mq4">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="SsP-jA-rXn" secondAttribute="trailing" constant="159" id="MxD-rg-UkY">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstItem="SsP-jA-rXn" firstAttribute="top" secondItem="W42-Mz-SUI" secondAttribute="top" constant="110" id="bIk-Aw-OCW">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="9ay-8f-Ag4" secondAttribute="bottom" constant="34" id="eb4-CX-1hz">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstItem="SsP-jA-rXn" firstAttribute="leading" secondItem="W42-Mz-SUI" secondAttribute="leading" constant="159" id="sDl-84-0px">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="128" id="tPc-UJ-JpI">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="240"/>
+                                    </constraint>
+                                    <constraint firstItem="9ay-8f-Ag4" firstAttribute="top" secondItem="SsP-jA-rXn" secondAttribute="bottom" constant="31" id="y40-MO-luK">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="5"/>
+                                    </constraint>
+                                    <constraint firstItem="9ay-8f-Ag4" firstAttribute="leading" secondItem="W42-Mz-SUI" secondAttribute="leading" constant="60" id="zUg-Tb-hrg">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="SsP-jA-rXn"/>
+                                        <exclude reference="9ay-8f-Ag4"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="tPc-UJ-JpI"/>
+                                        <exclude reference="MxD-rg-UkY"/>
+                                        <exclude reference="bIk-Aw-OCW"/>
+                                        <exclude reference="sDl-84-0px"/>
+                                        <exclude reference="4Gu-OV-mq4"/>
+                                        <exclude reference="eb4-CX-1hz"/>
+                                        <exclude reference="y40-MO-luK"/>
+                                        <exclude reference="zUg-Tb-hrg"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="SsP-jA-rXn"/>
+                                        <include reference="9ay-8f-Ag4"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="tPc-UJ-JpI"/>
+                                        <include reference="MxD-rg-UkY"/>
+                                        <include reference="bIk-Aw-OCW"/>
+                                        <include reference="sDl-84-0px"/>
+                                        <include reference="4Gu-OV-mq4"/>
+                                        <include reference="eb4-CX-1hz"/>
+                                        <include reference="y40-MO-luK"/>
+                                        <include reference="zUg-Tb-hrg"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ijo-41-hJv" firstAttribute="trailing" secondItem="Vcf-ZI-SpB" secondAttribute="trailing" id="1DX-Df-jIP"/>
                             <constraint firstItem="C1D-OC-Pj4" firstAttribute="leading" secondItem="EFU-Vc-XSp" secondAttribute="trailing" constant="20" id="1fL-9d-5zY">
-                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
                             <constraint firstItem="fda-kI-1zU" firstAttribute="leading" secondItem="C1D-OC-Pj4" secondAttribute="trailing" constant="18" id="3UK-Ih-40k">
-                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
                             <constraint firstItem="W42-Mz-SUI" firstAttribute="top" secondItem="2jk-nn-Kd0" secondAttribute="bottom" constant="343" id="4UB-YI-fJv">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -5989,7 +6106,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="C1D-OC-Pj4" firstAttribute="height" secondItem="EFU-Vc-XSp" secondAttribute="height" id="Gsv-9D-sWP">
-                                <variation key="heightClass=regular-widthClass=compact" constant="5"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="Ege-7s-HY9" firstAttribute="width" secondItem="7FW-8S-dnO" secondAttribute="width" id="IhA-mB-bOE"/>
                             <constraint firstItem="fda-kI-1zU" firstAttribute="trailing" secondItem="fiN-cS-wfb" secondAttribute="trailing" id="LpQ-hV-PJ0"/>
@@ -6004,7 +6121,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="C1D-OC-Pj4" firstAttribute="width" secondItem="EFU-Vc-XSp" secondAttribute="width" id="Tse-dV-cKq">
-                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="Ege-7s-HY9" firstAttribute="leading" secondItem="W42-Mz-SUI" secondAttribute="leading" id="YUn-6v-EEo"/>
                             <constraint firstItem="C1D-OC-Pj4" firstAttribute="top" secondItem="EFU-Vc-XSp" secondAttribute="top" id="Z6c-mP-rp2">
@@ -6034,7 +6151,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="W42-Mz-SUI"/>
                                 <exclude reference="VVi-Bx-sVt"/>
                                 <exclude reference="Ege-7s-HY9"/>
                                 <exclude reference="7FW-8S-dnO"/>
@@ -6044,6 +6160,7 @@
                                 <exclude reference="fda-kI-1zU"/>
                                 <exclude reference="Vcf-ZI-SpB"/>
                                 <exclude reference="Ijo-41-hJv"/>
+                                <exclude reference="W42-Mz-SUI"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="dRN-SQ-HXY"/>
@@ -6083,7 +6200,6 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="W42-Mz-SUI"/>
                                 <include reference="VVi-Bx-sVt"/>
                                 <include reference="Ege-7s-HY9"/>
                                 <include reference="7FW-8S-dnO"/>
@@ -6093,6 +6209,7 @@
                                 <include reference="fda-kI-1zU"/>
                                 <include reference="Vcf-ZI-SpB"/>
                                 <include reference="Ijo-41-hJv"/>
+                                <include reference="W42-Mz-SUI"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="dRN-SQ-HXY"/>
@@ -6138,6 +6255,7 @@
                         <outlet property="expiryYearTF" destination="C1D-OC-Pj4" id="Ruh-DK-hCb"/>
                         <outlet property="firstNameTF" destination="Ege-7s-HY9" id="2G0-Ix-qxq"/>
                         <outlet property="lastNameTF" destination="7FW-8S-dnO" id="fAY-oL-AfY"/>
+                        <outlet property="myCardView" destination="W42-Mz-SUI" id="j2E-o1-wWn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buX-9S-aWk" userLabel="First Responder" sceneMemberID="firstResponder"/>

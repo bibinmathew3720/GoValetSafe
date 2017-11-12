@@ -12,6 +12,7 @@ class AddCardVC: UIViewController {
     @IBOutlet weak var firstNameTF: CustomTextField!
 
     @IBOutlet weak var cvvTF: CustomTextField!
+    @IBOutlet weak var myCardView: UIView!
     @IBOutlet weak var expiryYearTF: CustomTextField!
     @IBOutlet weak var expiryMonthTF: CustomTextField!
     @IBOutlet weak var cardNoTF: CustomTextField!
@@ -21,7 +22,18 @@ class AddCardVC: UIViewController {
         self.addLogo()
         self.title = "PAYMENT".localized
         self.changeNavTitleColor()
+        self.customisingTextFields()
         // Do any additional setup after loading the view.
+    }
+    
+    func customisingTextFields(){
+        firstNameTF.roundCorner()
+        lastNameTF.roundCorner()
+        cardNoTF.roundCorner()
+        expiryMonthTF.roundCorner()
+        expiryYearTF.roundCorner()
+        cvvTF.roundCorner()
+        myCardView.roundCornerValue(2)
     }
 
     override func didReceiveMemoryWarning() {
