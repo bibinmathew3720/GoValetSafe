@@ -68,7 +68,7 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         let paymentDetails = self.subscriptionListArray.objectAtIndex(indexPath.row)
         let title:String = paymentDetails["title"] as! String
         let cost:String = paymentDetails["cost"] as! String
-        paymentCell.subscriptionLabel.text = title+"\n"+"QAR"+cost
+        paymentCell.subscriptionLabel.text = title+"\n"+"QAR "+cost
         if selIndex == indexPath{
             paymentCell.setSelectedBorder()
         }
@@ -82,7 +82,7 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         let paymentDetails = self.subscriptionListArray.objectAtIndex(indexPath.row)
         selectedSubScription = paymentDetails
         if (previousIndex != nil){
-            let prevCell:SubScriptionCell = collectionView.cellForItemAtIndexPath(indexPath) as! SubScriptionCell
+            let prevCell:SubScriptionCell = collectionView.cellForItemAtIndexPath(previousIndex!) as! SubScriptionCell
             prevCell.setUnSelectedBorder()
         }
         previousIndex = indexPath

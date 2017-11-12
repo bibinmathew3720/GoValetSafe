@@ -5651,7 +5651,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNF-rY-cub">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -5733,7 +5733,7 @@
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aOK-bD-toe" firstAttribute="top" secondItem="BNF-rY-cub" secondAttribute="bottom" constant="108" id="3KP-pj-abI">
-                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="xLZ-ab-dB8" firstAttribute="leading" secondItem="kwH-iA-moT" secondAttribute="leading" id="5aJ-p9-kHP">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -5758,7 +5758,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="BNF-rY-cub" firstAttribute="top" secondItem="cDc-fd-KsF" secondAttribute="bottom" constant="370" id="db6-71-yaJ">
-                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                             </constraint>
                             <constraint firstItem="gxJ-J9-fxJ" firstAttribute="top" secondItem="aOK-bD-toe" secondAttribute="bottom" constant="216" id="fjk-gJ-ryf">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>

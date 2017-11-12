@@ -53,6 +53,7 @@ class UserInfo: NSObject, NSCoding {
     var messge: String?
     var token: String?
     var userName: String?
+    var subScriptionStatus: String?
     var userFirstName: String?
     var userLastName: String?
     var dob: String?
@@ -109,6 +110,9 @@ class UserInfo: NSObject, NSCoding {
             }
             if let data = dict["email"]?.string {
                 self.email = data
+            }
+            if let data = dict["subscription_status"]?.string {
+                self.subScriptionStatus = data
             }
             if let data = dict["mobile"]?.string {
                 self.phone = data
