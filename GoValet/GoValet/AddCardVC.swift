@@ -11,6 +11,7 @@ import Alamofire
 enum CardServiceType {
     case AddCardService
     case GetAllCards
+    case DeleteCard
 }
 class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,CardCellDelegate {
     var cardsArray = NSArray()
@@ -114,10 +115,16 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     //MARK: Card Cell Delegates
     
     func deleteButtonActionDelegate(cellTag: NSInteger) {
-        
+        let cardDetails = self.cardsArray.objectAtIndex(cellTag)
+        self.addLoaingIndicator()
+        let token = UserInfo.currentUser()?.token
+        var params = [String: AnyObject]()
+        let cardId:String = cardDetails["id"] as! String
+        params["device_token"] = token
+        params["card_id"] = cardId
+        postServiceWithApiType(params, type: .DeleteCard)
     }
     func setAsDefaultButtonActionDelegate(cellTag: NSInteger) {
-        
     }
     
     //MARK: Button Actions
@@ -182,6 +189,9 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         else if type == .GetAllCards{
             url = "\(baseUrl)payment/get_user_cards"
         }
+        else if type == .DeleteCard{
+            url = "\(baseUrl)payment/delete_card"
+        }
         Alamofire.request(.POST,url!, parameters: parameters as? [String : AnyObject], headers:nil)
             .validate()
             .responseJSON {response in
@@ -207,17 +217,25 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
                             
                             if val["data"] is String{
                                 self.clearAllTextFields()
+                                self.getAllCards()
                                 UtilityMethods.showAlert(val["data"] as! String, tilte: "GoValet", presentVC: self)
+                                
                             }
                             else if val["error"] is String{
                                 UtilityMethods.showAlert(val["error"] as! String, tilte: "Warning!".localized, presentVC: self)
                             }
                         }
-//                        else if(type == .ChooseSubscription){
-//                            if (val["error"] != nil) {
-//                                UtilityMethods.showAlert(val["error"] as! String, tilte: "Warning!".localized, presentVC: self)
-//                            }
-//                        }
+                        else if(type == .DeleteCard){
+                            
+                            if val["data"] is String{
+                                self.getAllCards()
+                                UtilityMethods.showAlert(val["data"] as! String, tilte: "GoValet", presentVC: self)
+                                
+                            }
+                            else if val["error"] is String{
+                                UtilityMethods.showAlert(val["error"] as! String, tilte: "Warning!".localized, presentVC: self)
+                            }
+                        }
                     }
                 case .Failure(let error):
                     if let data = response.data, let utf8Text = String.init(data: data, encoding: NSUTF8StringEncoding) {
