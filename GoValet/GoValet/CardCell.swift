@@ -8,18 +8,28 @@
 
 import UIKit
 
+protocol CardCellDelegate: class {
+    
+    func setAsDefaultButtonActionDelegate(cellTag:Int)
+    func deleteButtonActionDelegate(cellTag:Int)
+}
+
 class CardCell: UICollectionViewCell {
 
     @IBOutlet weak var setAsDefaultButton: UIButton!
     @IBOutlet weak var cardNoLabel: UILabel!
+    weak var delegate: CardCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     @IBAction func setAsDefaultButtonaction(sender: AnyObject) {
+        delegate?.setAsDefaultButtonActionDelegate(self.tag)
     }
   
     @IBAction func closeButtonAction(sender: UIButton) {
+        delegate?.deleteButtonActionDelegate(self.tag)
     }
 }

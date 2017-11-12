@@ -12,7 +12,7 @@ enum CardServiceType {
     case AddCardService
     case GetAllCards
 }
-class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,CardCellDelegate {
     var cardsArray = NSArray()
     
     @IBOutlet weak var cardsCollectionView: UICollectionView!
@@ -78,6 +78,8 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
             cardCell.setAsDefaultButton.hidden = false
         }
         cardCell.cardNoLabel.text = cardNo
+        cardCell.tag = indexPath.row
+        cardCell.delegate = self
         return cardCell
     }
     
@@ -107,6 +109,15 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         print(self.view.frame.width)
         return CGSize(width:collectionView.frame.width, height: 80)
+    }
+    
+    //MARK: Card Cell Delegates
+    
+    func deleteButtonActionDelegate(cellTag: NSInteger) {
+        
+    }
+    func setAsDefaultButtonActionDelegate(cellTag: NSInteger) {
+        
     }
     
     //MARK: Button Actions
