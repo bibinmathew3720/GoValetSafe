@@ -32,8 +32,11 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         self.changeNavTitleColor()
         callingGetSubscriptionsApi()
         subscriptionCollectionView.registerNib(UINib(nibName: "SubScriptionCell", bundle: nil), forCellWithReuseIdentifier: "subscriptionCell")
-        self.subscriptionHeadingLabel.text = "You are on one month free subscription"
         
+       print (UserInfo.currentUser()?.subScriptionStatus)
+        if(UserInfo.currentUser()?.subScriptionStatus == "valid"){
+           self.subscriptionHeadingLabel.text = "You are on one month free subscription" 
+        }
         
         
     }
@@ -117,8 +120,6 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        print(self.view.frame.width)
-        print((self.view.frame.width-3*cellItemSpacing)/2)
         return CGSize(width: (collectionView.frame.width-3*cellItemSpacing)/2, height: 60)
     }
     
