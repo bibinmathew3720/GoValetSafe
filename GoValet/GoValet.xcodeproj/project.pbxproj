@@ -63,6 +63,7 @@
 		D03D2C4F1FB7D67700D80114 /* SubScriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03D2C4D1FB7D67700D80114 /* SubScriptionCell.swift */; };
 		D03D2C501FB7D67700D80114 /* SubScriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03D2C4E1FB7D67700D80114 /* SubScriptionCell.xib */; };
 		D05033691FB69D120010D177 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05033681FB69D120010D177 /* PaymentVC.swift */; };
+		D05459681FB83A9A007ED3B7 /* AddCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05459671FB83A9A007ED3B7 /* AddCardVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		D03D2C4D1FB7D67700D80114 /* SubScriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubScriptionCell.swift; sourceTree = "<group>"; };
 		D03D2C4E1FB7D67700D80114 /* SubScriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubScriptionCell.xib; sourceTree = "<group>"; };
 		D05033681FB69D120010D177 /* PaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		D05459671FB83A9A007ED3B7 /* AddCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardVC.swift; sourceTree = "<group>"; };
 		E59BEB52B4A23FE646F820EC /* Pods-GoValetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoValetUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoValetUITests/Pods-GoValetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD0381D29FF041D4FA980B0F /* Pods-GoValet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoValet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoValet/Pods-GoValet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +268,7 @@
 				D05033681FB69D120010D177 /* PaymentVC.swift */,
 				D03D2C4D1FB7D67700D80114 /* SubScriptionCell.swift */,
 				D03D2C4E1FB7D67700D80114 /* SubScriptionCell.xib */,
+				D05459671FB83A9A007ED3B7 /* AddCardVC.swift */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				481192241E350E3800141186 /* CarListTableViewCell.swift in Sources */,
 				D03D2C4F1FB7D67700D80114 /* SubScriptionCell.swift in Sources */,
 				48003FC31E127D07006EA922 /* SideMenuCell.swift in Sources */,
+				D05459681FB83A9A007ED3B7 /* AddCardVC.swift in Sources */,
 				488212671E01285200D3BE30 /* ViewController.swift in Sources */,
 				4800CD0E1E051DD90024F9B0 /* BaseViewController.swift in Sources */,
 				4812F48A1E1EA6F1009B7E7F /* ProfileViewController.swift in Sources */,
