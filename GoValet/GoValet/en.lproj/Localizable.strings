@@ -19,13 +19,14 @@
 "Ok" = "Ok";
 "By Clicking Confirm You Agree To Go Valet Turms Of Use And Privacy Policy." = "By Clicking Confirm You Agree To Go Valet Turms Of Use And Privacy Policy.";
 "Shift Staff Number" = "Shift Staff Number";
-"Payment" = "Payment";
+"Subscription" = "Subscription";
 "Manage Cards" = "Manage Cards";
 "Settings" = "Settings";
 "History" = "History";
 "Help" = "Help";
 "Logout" = "Logout";
 "SUBSCRIPTION" = "SUBSCRIPTION";
+"PAYMENT" = "PAYMENT";
 "HISTORY" = "HISTORY";
 "SETTINGS" = "SETTINGS";
 "EDIT ACCOUNT" = "EDIT ACCOUNT";

@@ -12,7 +12,9 @@ class AddCardVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.addLogo()
+        self.title = "PAYMENT".localized
+        self.changeNavTitleColor()
         // Do any additional setup after loading the view.
     }
 

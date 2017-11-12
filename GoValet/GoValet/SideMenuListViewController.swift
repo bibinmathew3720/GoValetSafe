@@ -80,7 +80,7 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
                     menuCell.menuTitleLbl.text = "Shift Staff Number".localized
                     menuCell.menuImageView.image = UIImage(named:"ShiftSetting")
                 }else{
-                    menuCell.menuTitleLbl.text = "Payment".localized
+                    menuCell.menuTitleLbl.text = "Subscription".localized
                     menuCell.menuImageView.image = UIImage(named:"Payments")
                 }
             case 2:
@@ -134,11 +134,14 @@ class SideMenuListViewController: UIViewController,UITableViewDelegate,UITableVi
                     NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
                     self.closeMenu()
                 }else{
-                    self.showPasswordConfirmAlert()
+                    var myDict = ["menu": "4"]
+                    NSNotificationCenter.defaultCenter().postNotificationName("SideMenuOpenNotification", object:myDict);
+                    self.closeMenu()
+                    //self.showPasswordConfirmAlert()
                 }
             case 2:
                     //var myDict = ["menu": "3"]
-                    var myDict = ["menu": "4"]
+                    var myDict = ["menu": "5"]
                     if UserInfo.currentUser()?.userType == "valet_manager"{
                         myDict = ["menu": "1"]
                     }

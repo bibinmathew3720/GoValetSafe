@@ -568,6 +568,9 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         case 4://For Manage Cards(User)
             let paymentVC = self.storyboard?.instantiateViewControllerWithIdentifier("paymentVC") as! PaymentVC
             self.navigationController?.pushViewController(paymentVC, animated: true)
+        case 5://For List Cards(User)
+            let paymentVC = self.storyboard?.instantiateViewControllerWithIdentifier("addCardVC") as! AddCardVC
+            self.navigationController?.pushViewController(paymentVC, animated: true)
         default:
             break
         }

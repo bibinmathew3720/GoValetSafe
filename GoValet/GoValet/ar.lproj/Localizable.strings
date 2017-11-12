@@ -20,13 +20,14 @@
 "Ok" = "حسنا";
 "By Clicking Confirm You Agree To Go Valet Turms Of Use And Privacy Policy." = "بالضغط تأكيد موافقتك على الذهاب من وإلى الجراج Turms الاستخدام وسياسة الخصوصية.";
 "Shift Staff Number" = "تحول عدد الموظفين";
-"Payment" = "الدفع";
+"Subscription" = "اشتراك";
 "Manage Cards" = "إدارة البطاقات";
 "Settings" = "ضبط";
 "History" = "التاريخ";
 "Help" = "مساعدة";
 "Logout" = "الخروج";
 "SUBSCRIPTION" = "الالتحاق";
+"PAYMENT" = "دفع";
 "HISTORY" = "التاريخ";
 "SETTINGS" = "ضبـط";
 "EDIT ACCOUNT" = "تعديل الحساب";
