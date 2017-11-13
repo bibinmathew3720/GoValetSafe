@@ -50,6 +50,7 @@ extension HomeViewController: WebServiceTaskManagerProtocol,UIImagePickerControl
                     }
                 }
                 else if managerType.currentServiceType == .CancelValetRequest{
+                    self.updateTimer.invalidate()
                     if let msg = response.data?.successMessage {
                         self.showAlert("GoValet", message: msg)
                     }
@@ -159,7 +160,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
     var isCameraShowingMode = true
     
     var recursiveApiCallingTImer = NSTimer()
-    
+    var updateTimer = NSTimer()
     // MARK: - @IBOutlets
     
     @IBOutlet weak var cameraView: UIView!
@@ -595,7 +596,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
                 
             }
             count=count*60
-            _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
+            updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
         }
     }
     
