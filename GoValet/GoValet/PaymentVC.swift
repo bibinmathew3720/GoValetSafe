@@ -47,12 +47,13 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         let token = UserInfo.currentUser()?.token
         var params = [String: AnyObject]()
         params["device_token"] = token
-        let appLanguage:String = NSUserDefaults.standardUserDefaults().objectForKey("AppleLanguages")![0] as! String
-        if (appLanguage=="en"){
-          params["lang"] = "eng"
+        
+        let currentLanguage = NSLocale.preferredLanguages()[0]
+        if currentLanguage == "ar-US"{
+            params["lang"] = "ar"
         }
         else{
-          params["lang"] = "ar"
+           params["lang"] = "eng"
         }
         
         postServiceWithApiType(params, type: .GetSubscriptionList)
