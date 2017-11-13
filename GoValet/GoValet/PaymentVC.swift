@@ -79,6 +79,16 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         let title:String = paymentDetails["title"] as! String
         let cost:String = paymentDetails["cost"] as! String
         paymentCell.subscriptionLabel.text = title+"\n"+"QAR "+cost
+//        if let val = paymentDetails["isvalid"] {
+//            // now val is not nil and the Optional has been unwrapped, so use it
+//            if val as! String == "1"{
+//                selIndex = indexPath
+//            }
+//            else{
+//                
+//            }
+//        }
+        
         if selIndex == indexPath{
             paymentCell.setSelectedBorder()
         }
@@ -96,6 +106,7 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
             prevCell.setUnSelectedBorder()
         }
         previousIndex = indexPath
+        selIndex = indexPath
         let subCell:SubScriptionCell = collectionView.cellForItemAtIndexPath(indexPath) as! SubScriptionCell
         subCell.setSelectedBorder()
     }
