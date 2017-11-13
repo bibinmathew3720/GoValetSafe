@@ -13,6 +13,7 @@ import DatePickerDialog
 import TOCropViewController
 import DKImagePickerController
 import MICountryPicker
+import SlideMenuControllerSwift
 
 
 extension SignUpViewController: WebServiceTaskManagerProtocol,AJCountryPickerDelegate,MICountryPickerDelegate {
@@ -67,15 +68,42 @@ extension SignUpViewController: WebServiceTaskManagerProtocol,AJCountryPickerDel
     func showVerfiyEmailAlert(){
         let alerController = UIAlertController(title: "", message: "You have been registered successfully, please Verfiy your Email".localized, preferredStyle: .Alert)
         alerController.addAction(UIAlertAction(title: "Ok".localized, style: .Default, handler: {(action:UIAlertAction) in
-            let paymentVC = self.storyboard?.instantiateViewControllerWithIdentifier("PaymentVC") as! PaymentViewController
-            paymentVC.isSignupFlow = true
+            
+//            UserInfo.currentUser()?.clearSession()
+//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            
+            
+            UserInfo.currentUser()?.clearSession()
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let navViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeVC") as! UINavigationController
+            let leftSideMenuVC = mainStoryboard.instantiateViewControllerWithIdentifier("SideMenuVC") as! SideMenuListViewController
+            //        let slideMenuController = SlideMenuController(mainViewController: navViewController, leftMenuViewController: leftSideMenuVC)
+            //        UIApplication.sharedApplication().keyWindow?.rootViewController = slideMenuController
+            
+            
+            let currentLanguage = NSLocale.preferredLanguages()[0]
+            if currentLanguage == "ar-US"{
+                let slideMenuController = SlideMenuController(mainViewController: navViewController, rightMenuViewController: leftSideMenuVC)
+                UIApplication.sharedApplication().keyWindow?.rootViewController = slideMenuController
+            }else{
+                let slideMenuController = SlideMenuController(mainViewController: navViewController, leftMenuViewController: leftSideMenuVC)
+                UIApplication.sharedApplication().keyWindow?.rootViewController = slideMenuController
+                
+            }
+
+            
+            
+//            let paymentVC = self.storyboard?.instantiateViewControllerWithIdentifier("PaymentView") as! PaymentViewController
+//            paymentVC.isSignupFlow = true
             UserInfo.currentUser()?.password = self.passwdTextFld.text
+            
 //            UserInfo.currentUser()?.save()
-            self.navigationController?.pushViewController(paymentVC, animated: true)
+            
+         //   self.navigationController?.pushViewController(paymentVC, animated: true)
 
         }));
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive, handler: nil)
-//        alerController.addAction(cancelAction)
+
         presentViewController(alerController, animated: true, completion: nil)
     }
 }

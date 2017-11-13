@@ -586,13 +586,16 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         if self.valetSucessResult?.averageTime != nil{
             let strVal : String = (self.valetSucessResult?.averageTime)!
             count = Float(strVal)!
-            count = count - 1
+            //count = count - 1
+            
             avgTimeLbl.text = "Average Time : \(count) Min"
             let currentLanguage = NSLocale.preferredLanguages()[0]
             if currentLanguage == "ar-US"{
                 avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقائق"
+                
             }
-            _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
+            count=count*60
+            _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
         }
     }
     
@@ -600,7 +603,9 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         if(count > 0) {
             count = count - 1
             if count > 0{
-                avgTimeLbl.text = "Average Time : \(count) Min"
+                let Minute:Int16 = Int16(count/60)
+                let Seconds:Int16 = Int16(count%60)
+                avgTimeLbl.text = "Average Time : \(Minute) Min \(Seconds) Sec"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
                     avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقائق"
@@ -611,6 +616,8 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             }
         }
     }
+    
+    
     
     func timerForGetRequestApiDetails(){
         recursiveApiCallingTImer = NSTimer.scheduledTimerWithTimeInterval(KValetRequestTimerTime, target: self, selector: Selector("callGetRequestApiDetailsAPI"), userInfo: nil, repeats: true)
