@@ -14,9 +14,11 @@ class ValetResonse{
     var status: String?
     var iD: String?
     var averageTime: String?
+    var avgTimeFloat:Float?
     var createdDate: String?
     var updatedDate: String?
     var error: String?
+    var isInSeconds: String?
     var hotel:Hotel?
     
     init(json: JSON) {
@@ -24,8 +26,13 @@ class ValetResonse{
             if let data = dict["id"]?.string {
                 self.iD = data
             }
+            print(dict["average_time"])
             if let data = dict["average_time"]?.string {
                 self.averageTime = data
+            }
+            else{
+                self.isInSeconds = "YES"
+                self.avgTimeFloat = dict["average_time"]?.float
             }
             if let data = dict["created_dt"]?.string {
                 self.createdDate = data

@@ -151,9 +151,9 @@ class BaseWebService: NSObject {
                 switch response.result{
                     case .Success:
                         if let val = response.result.value {
-                            // print("JSON: \(JSON)")
+                            print(val)
                             let json = JSON(val)
-                            //                    print("JSON: \(json)")
+                            print("JSON: \(json)")
                             self.successWithResponse(json)
                         }
                     case .Failure(let error):

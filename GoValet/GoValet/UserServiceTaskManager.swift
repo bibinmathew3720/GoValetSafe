@@ -35,6 +35,7 @@ extension UserServiceTaskManager : BaseServiceDelegates  {
             }
         }
         else if currentServiceType == .RequestDetails{
+            
             let sucessRepose = ValetResonse.init(json: responseData)
             response?.responseModel = sucessRepose
         }

@@ -76,8 +76,10 @@ extension HomeViewController: WebServiceTaskManagerProtocol,UIImagePickerControl
                             if managerType.isRepeatApi == false{
                                 self.configureSuccesView(1)
                             }
+                            print(valetSucessResult?.averageTime)
                             if let waitingTime = valetSucessResult?.averageTime{
                                 let strVal : String = waitingTime
+                                
                                 if managerType.isRepeatApi == false{
                                     self.count = Float(strVal)!
                                 }
@@ -86,6 +88,11 @@ extension HomeViewController: WebServiceTaskManagerProtocol,UIImagePickerControl
                                         self.showTimerValue()
                                     }
                                 }
+                            }
+                            else{
+                                self.updateTimer.invalidate()
+                               self.count = (valetSucessResult?.avgTimeFloat)!
+                                self.showTimerValue()
                             }
                         }
                         else if statusVal == "completed"{
@@ -240,11 +247,11 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             successViewcloseBtn.setTitle("Cancel", forState: .Normal)
             if self.valetSucessResult?.averageTime != nil{
                 let strVal : String = (self.valetSucessResult?.averageTime)!
-                 let val = Float(strVal)!
-                avgTimeLbl.text = "Average Time : \(val) Min"
+                 //let val = Float(strVal)!
+                avgTimeLbl.text = "Average Time : \(strVal) Min"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
-                    avgTimeLbl.text = "الـوقـت المتوقــع: \(val) دقائق"
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(strVal) دقائق"
                 }
             }else{
                 avgTimeLbl.text = "Average Time : "
@@ -256,10 +263,12 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
 
         }
         else if type == 2{
+            self.updateTimer.invalidate()
             successViewcloseBtn.setTitle("Ok", forState: .Normal)
             avgTimeLbl.text = "Request has been cancelled"
         }
         else if type == 3{
+            self.updateTimer.invalidate()
             successViewcloseBtn.setTitle("Ok", forState: .Normal)
             avgTimeLbl.text = "Your car is ready"
         }
@@ -588,15 +597,26 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             let strVal : String = (self.valetSucessResult?.averageTime)!
             count = Float(strVal)!
             //count = count - 1
-            
-            avgTimeLbl.text = "Average Time : \(count) Min"
-            let currentLanguage = NSLocale.preferredLanguages()[0]
-            if currentLanguage == "ar-US"{
-                avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقائق"
-                
-            }
-            count=count*60
+                avgTimeLbl.text = "Average Time : \(count) Min"
+                let currentLanguage = NSLocale.preferredLanguages()[0]
+                if currentLanguage == "ar-US"{
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقائق"
+                    
+                }
+             count=count*60
             updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
+        }
+        else{
+            if(self.valetSucessResult?.isInSeconds == "YES"){
+                let Minute:Int16 = Int16(count/60)
+                let Seconds:Int16 = Int16(count%60)
+                avgTimeLbl.text = "Average Time : \(Minute) Min \(Seconds) Sec"
+                let currentLanguage = NSLocale.preferredLanguages()[0]
+                if currentLanguage == "ar-US"{
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute) Min \(Seconds) Sec"
+                }
+                updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
+            }
         }
     }
     
@@ -609,12 +629,15 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
                 avgTimeLbl.text = "Average Time : \(Minute) Min \(Seconds) Sec"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
-                    avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقائق"
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute) Min \(Seconds) Sec"
                 }
             }else{
                 self.requestType = 3
                 self.configureSuccesView(3)
             }
+        }
+        else{
+            print("Time Out")
         }
     }
     
