@@ -3630,7 +3630,7 @@
                                                     </variation>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="EdH-x4-TBn" secondAttribute="bottom" constant="5.5" id="GVK-KX-sIV"/>
                                                 <constraint firstItem="pXO-wm-TuP" firstAttribute="leading" secondItem="ghR-i0-eA5" secondAttribute="leading" constant="8" id="MSJ-yr-09c"/>
@@ -3891,7 +3891,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="u1a-6l-4y2" firstAttribute="centerX" secondItem="Wnu-Um-B0p" secondAttribute="centerX" id="5X8-D2-ca6"/>
                                     <constraint firstItem="NYx-OD-CPD" firstAttribute="centerX" secondItem="Wnu-Um-B0p" secondAttribute="centerX" id="62F-9M-f0R"/>
