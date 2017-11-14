@@ -39,6 +39,7 @@ extension LoginViewController: WebServiceTaskManagerProtocol,UITextFieldDelegate
         
         }else{
             if self.isResendVerficationApiCal == false{
+                callingDeviceTokenApi()
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 if UserInfo.currentUser()?.userType == "valet_manager"{
                     let navViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MangerHomeNav") as! UINavigationController
@@ -79,6 +80,13 @@ extension LoginViewController: WebServiceTaskManagerProtocol,UITextFieldDelegate
             }
         }
     }
+}
+
+func callingDeviceTokenApi(){
+    
+    let tokenString:String =  NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String ?? ""
+    let serviceManger = LoginServiceManager()
+    serviceManger.sendDeviceToken(tokenString,deviceId:tokenString)
 }
 
 class LoginViewController: UIViewController {
