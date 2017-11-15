@@ -12,6 +12,7 @@ import CameraEngine
 import MessageUI
 
 let KValetRequestTimerTime : NSTimeInterval = 20
+let KHotelListTimerTime : NSTimeInterval = 10
 
 extension HomeViewController: WebServiceTaskManagerProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -168,6 +169,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
     
     var recursiveApiCallingTImer = NSTimer()
     var updateTimer = NSTimer()
+    var hotelListTimer = NSTimer()
     // MARK: - @IBOutlets
     
     @IBOutlet weak var cameraView: UIView!
@@ -179,6 +181,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         super.viewDidLoad()
         self.enablePushnotification()
         self.getValetRequestDetails()
+        self.timerForUpdatingHotelList()
         self.timerForGetRequestApiDetails()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("sideMenuOpen:"), name: "SideMenuOpenNotification", object: nil)
         hotelListTable.tableFooterView = UIView()
@@ -197,6 +200,11 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         getHotelListFromServer()
         self.cameraEngine.sessionPresset = .Photo
         self.cameraEngine.startSession()
+        self.getHotelBasedUserCurrentLocation()
+    }
+    
+    func timerForUpdatingHotelList(){
+        hotelListTimer = NSTimer.scheduledTimerWithTimeInterval(KHotelListTimerTime, target: self, selector: Selector("getHotelBasedUserCurrentLocation"), userInfo: nil, repeats: true)
     }
     
     
@@ -479,7 +487,6 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
 
     
     func getHotelListFromService(lattitude:String,longitude:String){
-        self.addLoaingIndicator()
         let hotelListManager = UserServiceTaskManager()
         hotelListManager.managerDelegate = self
         hotelListManager.getHotelsList(lattitude, longitude: longitude)
@@ -655,6 +662,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             hotelListManager.managerDelegate = self
             hotelListManager.isRepeatApi = true
             hotelListManager.requestDetailsRequest(requestID)
+
         }
     }
     
