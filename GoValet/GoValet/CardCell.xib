@@ -12,17 +12,21 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="341" height="77"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Menu" translatesAutoresizingMaskIntoConstraints="NO" id="pL0-7B-p5q">
-                        <rect key="frame" x="10" y="32" width="21" height="13"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ae" translatesAutoresizingMaskIntoConstraints="NO" id="pL0-7B-p5q">
+                        <rect key="frame" x="10" y="26" width="48" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="e5e-Jq-ZST"/>
+                            <constraint firstAttribute="height" constant="25" id="g7J-tt-o4F"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGR-Pz-iiS">
-                        <rect key="frame" x="41" y="39" width="0.0" height="0.0"/>
+                        <rect key="frame" x="68" y="38" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closeButton" translatesAutoresizingMaskIntoConstraints="NO" id="ryR-gn-RGq">
-                        <rect key="frame" x="306" y="27" width="25" height="25"/>
+                        <rect key="frame" x="306" y="26" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="JzN-uT-Kkp"/>
                             <constraint firstAttribute="height" constant="25" id="tE5-cm-aX6"/>
@@ -69,6 +73,7 @@
             </constraints>
             <size key="customSize" width="341" height="77"/>
             <connections>
+                <outlet property="cardIV" destination="pL0-7B-p5q" id="bej-yD-Tn6"/>
                 <outlet property="cardNoLabel" destination="qGR-Pz-iiS" id="pTQ-ht-evo"/>
                 <outlet property="setAsDefaultButton" destination="6Xt-zx-dne" id="Z1Q-8Y-ZVU"/>
             </connections>
@@ -76,7 +81,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Menu" width="21" height="13"/>
+        <image name="ae" width="73" height="50"/>
         <image name="closeButton" width="44" height="44"/>
     </resources>
 </document>

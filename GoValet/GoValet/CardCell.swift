@@ -17,6 +17,7 @@ protocol CardCellDelegate: class {
 class CardCell: UICollectionViewCell {
 
     @IBOutlet weak var setAsDefaultButton: UIButton!
+    @IBOutlet weak var cardIV: UIImageView!
     @IBOutlet weak var cardNoLabel: UILabel!
     weak var delegate: CardCellDelegate?
     

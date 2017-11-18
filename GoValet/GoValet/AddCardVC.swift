@@ -79,6 +79,22 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         else{
             cardCell.setAsDefaultButton.hidden = false
         }
+        
+        if(cardDetails["type"] as! String == "visa"){
+            cardCell.cardIV.image = UIImage(named: "visa")
+        }
+        else if(cardDetails["type"] as! String == "ae"){
+            cardCell.cardIV.image = UIImage(named: "ae")
+        }
+        else if(cardDetails["type"] as! String == "jcb"){
+            cardCell.cardIV.image = UIImage(named: "jcb")
+        }
+        else if(cardDetails["type"] as! String == "maestro"){
+            cardCell.cardIV.image = UIImage(named: "maestro")
+        }
+        else{
+           cardCell.cardIV.image = UIImage(named: "visa") 
+        }
         cardCell.cardNoLabel.text = cardNo
         cardCell.tag = indexPath.row
         cardCell.delegate = self
