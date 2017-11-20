@@ -258,13 +258,13 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             if self.valetSucessResult?.averageTime != nil{
                 let strVal : String = (self.valetSucessResult?.averageTime)!
                  //let val = Float(strVal)!
-                avgTimeLbl.text = "Average Time : \(strVal) Min"
+                avgTimeLbl.text = "Average Time - \(strVal) Min"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
                     avgTimeLbl.text = "الـوقـت المتوقــع: \(strVal) دقائق"
                 }
             }else{
-                avgTimeLbl.text = "Average Time : "
+                avgTimeLbl.text = "Average Time - "
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
                     avgTimeLbl.text = "الـوقـت المتوقــع: دقائق"
@@ -549,7 +549,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             selectedHotelImageView.sd_setImageWithURL(NSURL(string:(imageUrl)))
         }
         if let avgTime = selectedHotel?.avgTime{
-            hotelAvgTimeLbl.text = "Average Time : \(avgTime) Min"
+            hotelAvgTimeLbl.text = "Average Time - \(avgTime) Min"
             let currentLanguage = NSLocale.preferredLanguages()[0]
             if currentLanguage == "ar-US"{
                 hotelAvgTimeLbl.text = "الـوقـت المتوقــع: \(avgTime) دقائق"
@@ -606,7 +606,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             let strVal : String = (self.valetSucessResult?.averageTime)!
             count = Float(strVal)!
             //count = count - 1
-                avgTimeLbl.text = "Average Time : \(count) Min"
+                avgTimeLbl.text = "Average Time - \(count)"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
                     avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقائق"
@@ -619,10 +619,10 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             if(self.valetSucessResult?.isInSeconds == "YES"){
                 let Minute:Int16 = Int16(count/60)
                 let Seconds:Int16 = Int16(count%60)
-                avgTimeLbl.text = "Average Time : \(Minute) Min \(Seconds) Sec"
+                avgTimeLbl.text = "Average Time - \(Minute):\(Seconds)"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
-                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute) Min \(Seconds) Sec"
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute):\(Seconds)"
                 }
                 updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
             }
@@ -635,10 +635,10 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             if count > 0{
                 let Minute:Int16 = Int16(count/60)
                 let Seconds:Int16 = Int16(count%60)
-                avgTimeLbl.text = "Average Time : \(Minute) Min \(Seconds) Sec"
+                avgTimeLbl.text = "Average Time - \(Minute):\(Seconds)"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
-                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute) Min \(Seconds) Sec"
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute):\(Seconds)"
                 }
             }else{
                 self.requestType = 3
