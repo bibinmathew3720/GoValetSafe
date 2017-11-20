@@ -40,16 +40,24 @@ class RequestTableViewCell: UITableViewCell {
     
     
     func showData(){
-        if let name = self.request?.first_name{
-            nameLbl.text = "Name : \(name)"
-        }
+      
         if let name = self.request?.valet_code{
             ticketLbl.text = name
         }else{
             ticketLbl.text = "Ticket : Click on image"
         }
+        if let name = self.request?.first_name{
+            nameLbl.text = "Name : \(name)"
+        }
+        else{
+            nameLbl.text = "Non member car"
+             ticketLbl.text = "Ticket : "
+        }
         if let imageUrl = self.request?.valet_image{
             carImageView.sd_setImageWithURL(NSURL(string:(imageUrl)))
+        }
+        else{
+            carImageView.image = nil
         }
     }
     
