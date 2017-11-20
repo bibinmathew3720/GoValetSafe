@@ -246,7 +246,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .Cancel) { (_) in }
         
         alertController.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "Email"
@@ -261,14 +261,14 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
     
     func configureSuccesView(type: Int){
         if type == 1{
-            successViewcloseBtn.setTitle("Cancel", forState: .Normal)
+            successViewcloseBtn.setTitle("Cancel".localized, forState: .Normal)
             if self.valetSucessResult?.averageTime != nil{
                 let strVal : String = (self.valetSucessResult?.averageTime)!
                  //let val = Float(strVal)!
-                avgTimeLbl.text = "Average Time - \(strVal) Min"
+                avgTimeLbl.text = "Average Time - \(strVal) Mins"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
-                    avgTimeLbl.text = "الـوقـت المتوقــع: \(strVal) دقائق"
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(strVal) دقيقة"
                 }
             }else{
                 avgTimeLbl.text = "Average Time - "
@@ -382,7 +382,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         alerController.addAction(UIAlertAction(title: "SMS", style: .Default, handler: {(action:UIAlertAction) in
             self.openSMSview()
         }));
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .Cancel, handler: nil)
         alerController.addAction(cancelAction)
         presentViewController(alerController, animated: true, completion: nil)
     }
@@ -559,10 +559,10 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             selectedHotelImageView.sd_setImageWithURL(NSURL(string:(imageUrl)))
         }
         if let avgTime = selectedHotel?.avgTime{
-            hotelAvgTimeLbl.text = "Average Time - \(avgTime) Min"
+            hotelAvgTimeLbl.text = "Average Time - \(avgTime) Mins"
             let currentLanguage = NSLocale.preferredLanguages()[0]
             if currentLanguage == "ar-US"{
-                hotelAvgTimeLbl.text = "الـوقـت المتوقــع: \(avgTime) دقائق"
+                hotelAvgTimeLbl.text = "الـوقـت المتوقــع: \(avgTime) دقيقة"
             }
         }
         
@@ -616,10 +616,10 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             let strVal : String = (self.valetSucessResult?.averageTime)!
             count = Float(strVal)!
             //count = count - 1
-                avgTimeLbl.text = "Average Time - \(count)"
+                avgTimeLbl.text = "Average Time - \(count) Mins"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
-                    avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقائق"
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(count) دقيقة"
                     
                 }
              count=count*60
@@ -629,10 +629,10 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             if(self.valetSucessResult?.isInSeconds == "YES"){
                 let Minute:Int16 = Int16(count/60)
                 let Seconds:Int16 = Int16(count%60)
-                avgTimeLbl.text = "Average Time - \(Minute):\(Seconds)"
+                avgTimeLbl.text = "Average Time - \(Minute):\(Seconds) Mins"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
-                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute):\(Seconds)"
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute):\(Seconds) دقيقة"
                 }
                 updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:Selector("update"), userInfo: nil, repeats: true)
             }
@@ -645,10 +645,10 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
             if count > 0{
                 let Minute:Int16 = Int16(count/60)
                 let Seconds:Int16 = Int16(count%60)
-                avgTimeLbl.text = "Average Time - \(Minute):\(Seconds)"
+                avgTimeLbl.text = "Average Time - \(Minute):\(Seconds) Mins"
                 let currentLanguage = NSLocale.preferredLanguages()[0]
                 if currentLanguage == "ar-US"{
-                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute):\(Seconds)"
+                    avgTimeLbl.text = "الـوقـت المتوقــع: \(Minute):\(Seconds) دقيقة"
                 }
             }else{
                 self.requestType = 3
