@@ -4072,6 +4072,7 @@
                         <outlet property="hotelListTable" destination="RRw-B8-tbV" id="oE7-Rf-hQF"/>
                         <outlet property="hotelNameLbl" destination="vKN-da-Q9I" id="ogC-nw-eR2"/>
                         <outlet property="imagePreviewcloseBtn" destination="pSM-hu-2aP" id="f4b-Jz-4ch"/>
+                        <outlet property="orLabel" destination="86P-Np-snQ" id="haY-1b-J2E"/>
                         <outlet property="scanCodeBtn" destination="K7U-uP-Mim" id="vkY-LY-bLT"/>
                         <outlet property="scanCodeImageContainer" destination="pY3-66-bS8" id="KDP-59-twB"/>
                         <outlet property="scanImageView" destination="Dfx-Tj-zdy" id="iHj-JE-9U9"/>

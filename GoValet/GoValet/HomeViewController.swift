@@ -141,6 +141,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
     var selectedHotel :  Hotel?
     var valetSucessResult :  ValetResonse?
 
+    @IBOutlet weak var orLabel: UILabel!
     @IBOutlet weak var hotelListTable : UITableView!
     @IBOutlet weak var selectedHotelImageView : UIImageView!
     @IBOutlet weak var distacneLbl : UILabel!
@@ -210,6 +211,7 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
         self.cameraEngine.sessionPresset = .Photo
         self.cameraEngine.startSession()
         self.getHotelBasedUserCurrentLocation()
+        self.orLabel.text = "OR".localized
     }
     
     func timerForUpdatingHotelList(){
