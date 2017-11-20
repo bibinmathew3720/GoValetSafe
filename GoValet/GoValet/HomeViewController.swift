@@ -107,7 +107,9 @@ extension HomeViewController: WebServiceTaskManagerProtocol,UIImagePickerControl
                     if let hotelsArray = response.data?.responseModel as? [Hotel] {
                         self.hotelList = hotelsArray
                       //  hotelListTable.hidden = false
-                        selectedHotel = hotelList.first
+                        if (selectedHotel == nil){
+                            selectedHotel = hotelList.first
+                        }
                         self.showSelectedHotelData()
                         self.hotelListTable.reloadData()
                     }
