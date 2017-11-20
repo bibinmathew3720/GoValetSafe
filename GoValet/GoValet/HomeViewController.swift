@@ -106,9 +106,16 @@ extension HomeViewController: WebServiceTaskManagerProtocol,UIImagePickerControl
                 else{
                     if let hotelsArray = response.data?.responseModel as? [Hotel] {
                         self.hotelList = hotelsArray
+                        print(hotelsArray)
                       //  hotelListTable.hidden = false
                         if (selectedHotel == nil){
                             selectedHotel = hotelList.first
+                        }
+                        else{
+                            let filteredArray = hotelList.filter( { (hotel: Hotel) -> Bool in
+                                return hotel.hotelId == self.selectedHotel?.hotelId
+                            })
+                            selectedHotel = filteredArray.first
                         }
                         self.showSelectedHotelData()
                         self.hotelListTable.reloadData()
@@ -534,6 +541,9 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         selectedHotel = hotelList[indexPath.row]
+        print(selectedHotel?.name)
+         print(selectedHotel?.hotelId)
+        print(selectedHotel?.avgTime)
         tableView.hidden = true
         self.showSelectedHotelData()
     }
