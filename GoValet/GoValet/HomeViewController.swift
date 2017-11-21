@@ -66,7 +66,10 @@ extension HomeViewController: WebServiceTaskManagerProtocol,UIImagePickerControl
                             UserInfo.currentUser()?.save()
                         }
                         if statusVal == "cancelled"{
-//                            cancelled , completed, pending
+                            UserInfo.currentUser()?.currentRequestID = nil
+                            UserInfo.currentUser()?.save()
+                            
+                 //           cancelled , completed, pending
                             self.successView.hidden = false
                             self.requestType = 2
                             self.configureSuccesView(2)
