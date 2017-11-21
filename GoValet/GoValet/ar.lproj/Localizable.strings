@@ -73,3 +73,17 @@
 "Please Enter Expiry Month" = "الرجاء إدخال تاريخ انتهاء الصلاحية";
 "Please Enter Expiry Year" = "الرجاء إدخال تاريخ انتهاء الصلاحية";
 "Please Enter CVV Number" = "الرجاء إدخال رقم كفف";
+
+//Profile
+
+"Log Out" = "الخروج";
+"Are you sure you want to log out?" = "هل أنت متأكد أنك تريد تسجيل الخروج؟";
+"Please restart the app to change the language" = "يرجى إعادة تشغيل التطبيق لتغيير اللغة";
+"Change Language" = "غير اللغة";
+"Language Change" = "تغير اللغة";
+"English" = "الإنجليزية";
+"Arabic" = "عربى";
+"Please enter your Password" = "من فضلك أدخل رقمك السري";
+"Confirm" = "تؤكد";
+"Wrong Password!" = "كلمة مرور خاطئة!";
+"Password" = "كلمه السر";

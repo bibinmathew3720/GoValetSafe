@@ -81,33 +81,33 @@ class ProfileViewController: UIViewController {
     }
     
     func showLanguageOption(){
-        let alerController = UIAlertController(title: "", message: "Change Language", preferredStyle: .ActionSheet)
-        alerController.addAction(UIAlertAction(title: "English", style: .Default, handler: {(action:UIAlertAction) in
+        let alerController = UIAlertController(title: "", message: "Change Language".localized, preferredStyle: .ActionSheet)
+        alerController.addAction(UIAlertAction(title: "English".localized, style: .Default, handler: {(action:UIAlertAction) in
             NSUserDefaults.standardUserDefaults().setObject(["en", "ar-US"], forKey: "AppleLanguages")
             NSUserDefaults.standardUserDefaults().synchronize()
             UIView.appearance().semanticContentAttribute = .ForceLeftToRight
-            self.showAlert("Language Change", message: "Please restart the app to change the language")
+            self.showAlert("Language Change".localized, message: "Please restart the app to change the language".localized)
 
         }));
-        alerController.addAction(UIAlertAction(title: "Arabic", style: .Default, handler: {(action:UIAlertAction) in
+        alerController.addAction(UIAlertAction(title: "Arabic".localized, style: .Default, handler: {(action:UIAlertAction) in
             NSUserDefaults.standardUserDefaults().setObject(["ar-US", "en"], forKey: "AppleLanguages")
             NSUserDefaults.standardUserDefaults().synchronize()
             UIView.appearance().semanticContentAttribute = .ForceRightToLeft
-            self.showAlert("Language Change", message: "Please restart the app to change the language")
+            self.showAlert("Language Change".localized, message: "Please restart the app to change the language".localized)
 
         }));
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .Cancel, handler: nil)
         alerController.addAction(cancelAction)
         presentViewController(alerController, animated: true, completion: nil)
     }
     
     
     func showPasswordConfirmAlert(){
-        let alertController = UIAlertController(title: "", message: "Please enter your Password", preferredStyle: .Alert)
-        let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (_) in
+        let alertController = UIAlertController(title: "", message: "Please enter your Password".localized, preferredStyle: .Alert)
+        let confirmAction = UIAlertAction(title: "Confirm".localized, style: .Default) { (_) in
             if let field : UITextField = alertController.textFields![0] {
                 if field.text?.isBlank == true {
-                    UtilityMethods.showAlert("Wrong Password!", tilte: "Warning!".localized, presentVC: self)
+                    UtilityMethods.showAlert("Wrong Password!".localized, tilte: "Warning!".localized, presentVC: self)
                 }else{
                     if UserInfo.currentUser()?.password != nil{
                         let passwd  : String = (UserInfo.currentUser()?.password)!
@@ -115,7 +115,7 @@ class ProfileViewController: UIViewController {
                             let profilEditVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileEditVC") as! ProfileEditViewController
                             self.navigationController?.pushViewController(profilEditVC, animated: true)
                         }else{
-                            UtilityMethods.showAlert("Wrong Password!", tilte: "Warning!".localized, presentVC: self)
+                            UtilityMethods.showAlert("Wrong Password!".localized, tilte: "Warning!".localized, presentVC: self)
                         }
                         
                     }
@@ -125,10 +125,10 @@ class ProfileViewController: UIViewController {
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .Cancel) { (_) in }
         
         alertController.addTextFieldWithConfigurationHandler { (textField) in
-            textField.placeholder = "Password"
+            textField.placeholder = "Password".localized
             textField.secureTextEntry = true
         }
         alertController.addAction(confirmAction)
@@ -139,11 +139,11 @@ class ProfileViewController: UIViewController {
    
     
     func showLogoutConfirmAlert() {
-        let alerController = UIAlertController(title: "", message: "Are you sure you want to log out?", preferredStyle: .ActionSheet)
-        alerController.addAction(UIAlertAction(title: "Log Out", style: .Destructive, handler: {(action:UIAlertAction) in
+        let alerController = UIAlertController(title: "", message: "Are you sure you want to log out?".localized, preferredStyle: .ActionSheet)
+        alerController.addAction(UIAlertAction(title: "Log Out".localized, style: .Destructive, handler: {(action:UIAlertAction) in
             self.logout()
         }));
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized , style: .Cancel, handler: nil)
         alerController.addAction(cancelAction)
         presentViewController(alerController, animated: true, completion: nil)
     }
