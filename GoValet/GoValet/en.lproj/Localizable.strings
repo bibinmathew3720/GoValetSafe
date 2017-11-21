@@ -27,13 +27,32 @@
 "Help" = "Help";
 "Logout" = "Logout";
 "SUBSCRIPTION" = "SUBSCRIPTION";
-"PAYMENT" = "PAYMENT";
 "HISTORY" = "HISTORY";
 "SETTINGS" = "SETTINGS";
 "EDIT ACCOUNT" = "EDIT ACCOUNT";
 "PAYMENT SUBSCRIPTION" = "PAYMENT SUBSCRIPTION";
 "Shift Staff Number" = "Shift Staff Number";
+
+"" = "";
+"" = "";
+"" = "";
+
+//Subscription
+
+"QAR " = "QAR ";
 "Please Choose Subscription" = "Please Choose Subscription";
-"" = "";
-"" = "";
-"" = "";
+"Manage Payment Methods" = "Manage Payment Methods";
+
+//Add Card
+
+"MY CARD(S)" = "MY CARD(S)";
+"PAYMENT" = "PAYMENT";
+"ADD A NEW CARD" = "ADD A NEW CARD";
+"Powered by PayPal" = "Powered by PayPal";
+"ADD PAYMENT METHOD" = "ADD PAYMENT METHOD";
+"FIRST NAME" = "FIRST NAME";
+"LAST NAME" = "LAST NAME";
+"CARD NUMBER" = "CARD NUMBER";
+"CVV" = "CVV";
+"EXPIRY YEAR" = "EXPIRY YEAR";
+"EXPIRY MONTH" = "EXPIRY MONTH";

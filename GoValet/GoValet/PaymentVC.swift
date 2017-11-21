@@ -20,6 +20,7 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     @IBOutlet weak var flawLayout: UICollectionViewFlowLayout!
      @IBOutlet weak var subscriptionHeadingLabel: UILabel!
     let cellItemSpacing:CGFloat = 10.0
+    @IBOutlet weak var managePaymentButton: UIButton!
     var subscriptionListArray = NSArray()
     var selectedSubScription:AnyObject?
     var previousIndex:(NSIndexPath)?
@@ -29,6 +30,7 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         super.viewDidLoad()
         self.addLogo()
         self.title = "SUBSCRIPTION".localized
+        self.managePaymentButton .setTitle("Manage Payment Methods".localized, forState:.Normal)
         self.changeNavTitleColor()
         callingGetSubscriptionsApi()
         subscriptionCollectionView.registerNib(UINib(nibName: "SubScriptionCell", bundle: nil), forCellWithReuseIdentifier: "subscriptionCell")
@@ -50,7 +52,7 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         
         let currentLanguage = NSLocale.preferredLanguages()[0]
         if currentLanguage == "ar-US"{
-            params["lang"] = "ar"
+            params["lang"] = "arabic"
         }
         else{
            params["lang"] = "eng"
@@ -77,9 +79,16 @@ class PaymentVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let paymentCell:SubScriptionCell = collectionView.dequeueReusableCellWithReuseIdentifier("subscriptionCell", forIndexPath: indexPath) as! SubScriptionCell
         let paymentDetails = self.subscriptionListArray.objectAtIndex(indexPath.row)
-        let title:String = paymentDetails["title"] as! String
+        var title:String = ""
+        if ((paymentDetails.valueForKey("title")) != nil){
+           title = paymentDetails["title"] as! String
+        }
+        else if(paymentDetails.valueForKey("title_arabic") != nil){
+            title = paymentDetails["title_arabic"] as! String
+        }
+        
         let cost:String = paymentDetails["cost"] as! String
-        paymentCell.subscriptionLabel.text = title+"\n"+"QAR "+cost
+        paymentCell.subscriptionLabel.text = title+"\n"+"QAR ".localized+cost
 //        if let val = paymentDetails["isvalid"] {
 //            // now val is not nil and the Optional has been unwrapped, so use it
 //            if val as! String == "1"{

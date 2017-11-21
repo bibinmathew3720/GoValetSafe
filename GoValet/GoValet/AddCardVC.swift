@@ -17,6 +17,11 @@ enum CardServiceType {
 class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,CardCellDelegate {
     var cardsArray = NSArray()
     
+    @IBOutlet weak var myCardsLabel: UILabel!
+    @IBOutlet weak var addACardLabel: UILabel!
+    @IBOutlet weak var addPaymentButton: UIButton!
+    @IBOutlet weak var poweredByPayPalLable: UILabel!
+    
     @IBOutlet weak var cardsCollectionView: UICollectionView!
     @IBOutlet weak var firstNameTF: CustomTextField!
     @IBOutlet weak var cvvTF: CustomTextField!
@@ -28,12 +33,32 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addLogo()
-        self.title = "PAYMENT".localized
+        self.initialisation()
         cardsCollectionView.registerNib(UINib(nibName: "CardCell", bundle: nil), forCellWithReuseIdentifier: "cardCell")
         self.changeNavTitleColor()
         self.customisingTextFields()
         getAllCards()
         // Do any additional setup after loading the view.
+    }
+    
+    func initialisation(){
+       self.title = "PAYMENT".localized
+       self.addACardLabel.text = "ADD A NEW CARD".localized
+        self.myCardsLabel.text = "MY CARD(S)".localized
+       self.poweredByPayPalLable.text = "Powered by PayPal".localized
+       self.addPaymentButton .setTitle("ADD PAYMENT METHOD".localized, forState: .Normal)
+       self.firstNameTF.placeholder = "FIRST NAME".localized
+       self.firstNameTF.placeHolderColor = UIColor.whiteColor()
+       self.lastNameTF.placeholder = "LAST NAME".localized
+       self.lastNameTF.placeHolderColor = UIColor.whiteColor()
+       self.cardNoTF.placeholder = "CARD NUMBER".localized
+        self.cardNoTF.placeHolderColor = UIColor.whiteColor()
+        self.cvvTF.placeholder = "CVV".localized
+        self.cvvTF.placeHolderColor = UIColor.whiteColor()
+        self.expiryYearTF.placeholder = "EXPIRY YEAR".localized
+        self.expiryYearTF.placeHolderColor = UIColor.whiteColor()
+        self.expiryMonthTF.placeholder = "EXPIRY MONTH".localized
+        self.expiryMonthTF.placeHolderColor = UIColor.whiteColor()
     }
     
     func customisingTextFields(){

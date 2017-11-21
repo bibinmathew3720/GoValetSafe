@@ -190,7 +190,7 @@ class UtilityMethods: NSObject {
     class func showAlert(msg: String , tilte: String, presentVC:AnyObject){
         
         let alert = UIAlertController(title: tilte, message:msg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ action in
+        alert.addAction(UIAlertAction(title: "Ok".localized, style: .Default, handler:{ action in
             switch action.style{
             case .Default: break
 //                print("default")

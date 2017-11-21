@@ -29,13 +29,30 @@
 "Help" = "مساعدة";
 "Logout" = "الخروج";
 "SUBSCRIPTION" = "الالتحاق";
-"PAYMENT" = "دفع";
 "HISTORY" = "التاريخ";
 "SETTINGS" = "ضبـط";
 "EDIT ACCOUNT" = "تعديل الحساب";
 "PAYMENT SUBSCRIPTION" = "دفع الإشتراك";
 "Shift Staff Number" = "تحول عدد الموظفين";
 "sd" = "الـوقـت المتوقــع: 10 دقائق";
+"" = "";
+"" = "";
+
+//Subscription
+"QAR " = " ر.ق‎";
 "Please Choose Subscription" = "الرجاء اختيار الاشتراك";
-"" = "";
-"" = "";
+"Manage Payment Methods" = "إدارة طرق الدفع";
+
+//Add Card
+
+"MY CARD(S)" = "ماي كاردز";
+"PAYMENT" = "دفع";
+"ADD A NEW CARD" = "إضافة بطاقة جديدة";
+"Powered by PayPal" = "مدعوم من بايبال";
+"ADD PAYMENT METHOD" = "إضافة طريقة دفع";
+"FIRST NAME" = "الاسم الاول";
+"LAST NAME" = "الكنية";
+"CARD NUMBER" = "رقم البطاقة";
+"CVV" = "كود";
+"EXPIRY YEAR" = "إكسيرى يار";
+"EXPIRY MONTH" = "شهر انتهاء الصلاحية";

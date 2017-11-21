@@ -5643,7 +5643,7 @@
         <!--PaymentVC-->
         <scene sceneID="4iw-gv-9De">
             <objects>
-                <viewController storyboardIdentifier="paymentVC" id="gmc-2W-JYX" customClass="PaymentVC" customModule="GoValet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="paymentVC" id="gmc-2W-JYX" customClass="PaymentVC" customModule="GoValet" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cDc-fd-KsF"/>
                         <viewControllerLayoutGuide type="bottom" id="DC8-zj-cAh"/>
@@ -5834,6 +5834,7 @@
                     </view>
                     <connections>
                         <outlet property="flawLayout" destination="sqi-H1-ClE" id="Fbq-AI-hKh"/>
+                        <outlet property="managePaymentButton" destination="gxJ-J9-fxJ" id="6nw-BA-R1L"/>
                         <outlet property="subscriptionCollectionView" destination="aOK-bD-toe" id="IQS-t4-QRa"/>
                         <outlet property="subscriptionHeadingLabel" destination="BNF-rY-cub" id="8Q2-9g-07b"/>
                     </connections>
@@ -5845,7 +5846,7 @@
         <!--Add CardVC-->
         <scene sceneID="7ih-Bj-D81">
             <objects>
-                <viewController storyboardIdentifier="addCardVC" id="sAZ-2W-CrN" customClass="AddCardVC" customModule="GoValet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addCardVC" id="sAZ-2W-CrN" customClass="AddCardVC" customModule="GoValet" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2jk-nn-Kd0"/>
                         <viewControllerLayoutGuide type="bottom" id="cAi-mR-NHg"/>
@@ -6261,6 +6262,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addACardLabel" destination="VVi-Bx-sVt" id="IMs-Jp-W4Y"/>
+                        <outlet property="addPaymentButton" destination="Vcf-ZI-SpB" id="WDY-1K-BcT"/>
                         <outlet property="cardNoTF" destination="fiN-cS-wfb" id="Uzh-gG-75d"/>
                         <outlet property="cardsCollectionView" destination="9ay-8f-Ag4" id="gjH-VH-pWd"/>
                         <outlet property="cvvTF" destination="fda-kI-1zU" id="lhy-fU-215"/>
@@ -6269,6 +6272,8 @@
                         <outlet property="firstNameTF" destination="Ege-7s-HY9" id="2G0-Ix-qxq"/>
                         <outlet property="lastNameTF" destination="7FW-8S-dnO" id="fAY-oL-AfY"/>
                         <outlet property="myCardView" destination="W42-Mz-SUI" id="j2E-o1-wWn"/>
+                        <outlet property="myCardsLabel" destination="SsP-jA-rXn" id="utl-k2-vCM"/>
+                        <outlet property="poweredByPayPalLable" destination="Ijo-41-hJv" id="aqH-lm-90f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buX-9S-aWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
