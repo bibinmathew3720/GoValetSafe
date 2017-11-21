@@ -5,12 +5,17 @@
   Created by Ajeesh T S on 10/02/17.
   Copyright © 2017 Ajeesh T S. All rights reserved.
 */
-
+"Back" = "Back";
 "Warning!" = "Warning!";
 "Please Enter Password" = "Please Enter Password";
 "Please Enter Email" = "Please Enter Email";
 "Please Enter Valid Email" = "Please Enter Valid Email";
 "Please verify your email address" = "Please verify your email address";
+"Please Enter Mobile Number" = "Please Enter Mobile Number";
+"Please Select Country Code" =  "Please Select Country Code";
+"Password must contain at least 1 capital and 1 number and minimum 6 characters" = "Password must contain at least 1 capital and 1 number and minimum 6 characters";
+"Password Mismatch" = "Password Mismatch";
+
 "Resend" = "Resend";
 "Cancel" = "Cancel";
 "GPS access is restricted. In order to use tracking, please enable GPS in the Settigs app under Privacy, Location Services." = "GPS access is restricted. In order to use tracking, please enable GPS in the Settigs app under Privacy, Location Services.";
@@ -26,6 +31,7 @@
 "History" = "History";
 "Help" = "Help";
 "Logout" = "Logout";
+"SIGN UP" = "SIGN UP";
 "SUBSCRIPTION" = "SUBSCRIPTION";
 "HISTORY" = "HISTORY";
 "SETTINGS" = "SETTINGS";

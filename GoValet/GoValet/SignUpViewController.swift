@@ -134,8 +134,8 @@ class SignUpViewController: UIViewController,TOCropViewControllerDelegate,UIText
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.hidden = false
-        self.title = "SIGN UP"
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("back:"))
+        self.title = "SIGN UP".localized
+        let newBackButton = UIBarButtonItem(title: "Back".localized, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("back:"))
         self.navigationItem.leftBarButtonItem = newBackButton
 
         let myString: String = "By Clicking Confirm You Agree To Go Valet Terms Of Use And Privacy Policy.".localized
@@ -268,11 +268,11 @@ class SignUpViewController: UIViewController,TOCropViewControllerDelegate,UIText
 
     func isValidateCredential() -> Bool{
         if fNameTextFld.text?.isBlank == true {
-            UtilityMethods.showAlert("Please Enter First Name", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter First Name".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         if lNameTextFld.text?.isBlank == true {
-            UtilityMethods.showAlert("Please Enter Last Name", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter Last Name".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         if emailTextFld.text?.isBlank == true {
@@ -286,28 +286,28 @@ class SignUpViewController: UIViewController,TOCropViewControllerDelegate,UIText
         }
 
         if mobileNumber.text?.isBlank == true {
-            UtilityMethods.showAlert("Please Enter Mobile Number", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter Mobile Number".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         
         if coundryCodeLbl.text?.isBlank == true {
-            UtilityMethods.showAlert("Please Select Country Code", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Select Country Code".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         if passwdTextFld.text?.isBlank == true{
-            UtilityMethods.showAlert("Please Enter Password", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter Password".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }else{
             if Validator.isValidPassword(passwdTextFld.text!){
             }else{
-                UtilityMethods.showAlert("Password must contain at least 1 capital and 1 number and minimum 6 characters", tilte: "Warning!".localized, presentVC: self)
+                UtilityMethods.showAlert("Password must contain at least 1 capital and 1 number and minimum 6 characters".localized, tilte: "Warning!".localized, presentVC: self)
                 return false
             }
         }
         if passwdTextFld.text == confirmPasswdTextFld.text {
             return true
         }else{
-            UtilityMethods.showAlert("Password Mismatch", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Password Mismatch".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
     }

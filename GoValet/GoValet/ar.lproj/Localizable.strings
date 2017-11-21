@@ -6,11 +6,17 @@
   Copyright © 2017 Ajeesh T S. All rights reserved.
 */
 
+"Back" = "الى الخلف";
 "Warning!" = "!تحذير";
 "Please Enter Email" = "الرجاء أدخل البريد الالكتروني";
 "Please Enter Password" = "الرجاء إدخال كلمة المرور";
 "Please Enter Valid Email" = "الرجاء إدخال بريد إلكتروني صحيح";
 "Please verify your email address" = "يرجى التحقق من عنوان البريد الإلكتروني الخاص بك";
+"Please Enter Mobile Number" = "الرجاء إدخال رقم الجوال";
+"Please Select Country Code" =  "الرجاء تحديد رمز البلد";
+"Password must contain at least 1 capital and 1 number and minimum 6 characters" = "يجب أن تحتوي كلمة المرور على رأس مال واحد على الأقل ورقم واحد و 6 أحرف كحد أدنى";
+"Password Mismatch" = "عدم تطابق كلمة المرور";
+
 "Resend" = "إعادة إرسال";
 "Cancel" = "إلــغــاء‎";
 "GPS access is restricted. In order to use tracking, please enable GPS in the Settigs app under Privacy, Location Services." = "يقتصر الوصول GPS. من أجل استخدام تتبع، يرجى تمكين GPS في التطبيق Settigs ضمن الخصوصية، خدمات الموقع.";
@@ -28,6 +34,7 @@
 "History" = "التاريخ";
 "Help" = "مساعدة";
 "Logout" = "الخروج";
+"SIGN UP" = "سجل";
 "SUBSCRIPTION" = "الالتحاق";
 "HISTORY" = "التاريخ";
 "SETTINGS" = "ضبـط";
