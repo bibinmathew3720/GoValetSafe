@@ -45,7 +45,13 @@
 "" = "";
 "" = "";
 
+//Home
+
+"Please Add Code" = "يرجى إضافة شفرة";
+"Please Select the Hotel" = "يرجى تحديد الفندق";
+
 //Subscription
+
 "QAR " = " ر.ق‎";
 "Please Choose Subscription" = "الرجاء اختيار الاشتراك";
 "Manage Payment Methods" = "إدارة طرق الدفع";

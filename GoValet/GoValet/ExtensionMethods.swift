@@ -40,7 +40,7 @@ extension UIViewController {
     
     func showAlert(title: String?, message: String?) {
         let alerController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Ok".localized, style: .Cancel, handler: nil)
         alerController.addAction(cancelAction)
         presentViewController(alerController, animated: true, completion: nil)
         
@@ -48,7 +48,7 @@ extension UIViewController {
     
     func showAlertwithTitle(title: String, message: String) {
         let alerController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Ok".localized, style: .Cancel, handler: nil)
         alerController.addAction(cancelAction)
         presentViewController(alerController, animated: true, completion: nil)
     }

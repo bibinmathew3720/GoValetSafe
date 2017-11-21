@@ -469,18 +469,18 @@ class HomeViewController: BaseViewController ,MFMessageComposeViewControllerDele
     @IBAction func getItBtnClicked(){
         if isSelectedImage == false{
             if self.typeCodeTxtFld.text?.isBlank == true{
-                self.showWarningAlert("Please Add Code")
+                self.showWarningAlert("Please Add Code".localized)
                 return
             }
         }
         if self.typeCodeTxtFld.text?.isBlank == true{
             if isSelectedImage == false{
-                self.showWarningAlert("Please Add Code")
+                self.showWarningAlert("Please Add Code".localized)
                 return
             }
         }
         if self.selectedHotel == nil{
-            self.showWarningAlert("Please Select the Hotel")
+            self.showWarningAlert("Please Select the Hotel".localized)
             return
         }
         self.addLoaingIndicator()
