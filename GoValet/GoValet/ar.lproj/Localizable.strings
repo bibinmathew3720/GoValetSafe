@@ -56,3 +56,13 @@
 "CVV" = "كود";
 "EXPIRY YEAR" = "إكسيرى يار";
 "EXPIRY MONTH" = "شهر انتهاء الصلاحية";
+"Set as default" = "تعيين كافتراضي";
+
+//Validations
+
+"Please Enter First Name" = "الرجاء إدخال الاسم الأول";
+"Please Enter Last Name" = "الرجاء إدخال الاسم الأخير";
+"Please Enter Card No" = "الرجاء إدخال رقم البطاقة";
+"Please Enter Expiry Month" = "الرجاء إدخال تاريخ انتهاء الصلاحية";
+"Please Enter Expiry Year" = "الرجاء إدخال تاريخ انتهاء الصلاحية";
+"Please Enter CVV Number" = "الرجاء إدخال رقم كفف";

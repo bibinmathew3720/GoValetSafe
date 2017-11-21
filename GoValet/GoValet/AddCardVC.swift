@@ -76,6 +76,13 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         let token = UserInfo.currentUser()?.token
         var params = [String: AnyObject]()
         params["device_token"] = token
+        let currentLanguage = NSLocale.preferredLanguages()[0]
+        if currentLanguage == "ar-US"{
+            params["lang"] = "arabic"
+        }
+        else{
+            params["lang"] = "eng"
+        }
         postServiceWithApiType(params, type: .GetAllCards)
     }
 
@@ -164,6 +171,13 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         let cardId:String = cardDetails["id"] as! String
         params["device_token"] = token
         params["card_id"] = cardId
+        let currentLanguage = NSLocale.preferredLanguages()[0]
+        if currentLanguage == "ar-US"{
+            params["lang"] = "arabic"
+        }
+        else{
+            params["lang"] = "eng"
+        }
         postServiceWithApiType(params, type: .DeleteCard)
     }
     func setAsDefaultButtonActionDelegate(cellTag: NSInteger) {
@@ -175,6 +189,13 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         let cardId:String = cardDetails["id"] as! String
         params["device_token"] = token
         params["card_id"] = cardId
+        let currentLanguage = NSLocale.preferredLanguages()[0]
+        if currentLanguage == "ar-US"{
+            params["lang"] = "arabic"
+        }
+        else{
+            params["lang"] = "eng"
+        }
         postServiceWithApiType(params, type: .SetAsDefaultCard)
     }
     
@@ -194,6 +215,13 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
             params["expire_month"] = self.expiryMonthTF.text
             params["expire_year"] = self.expiryYearTF.text
             params["cvv"] = self.cvvTF.text
+            let currentLanguage = NSLocale.preferredLanguages()[0]
+            if currentLanguage == "ar-US"{
+                params["lang"] = "arabic"
+            }
+            else{
+                params["lang"] = "eng"
+            }
             postServiceWithApiType(params, type: .AddCardService)
         }
         
@@ -201,11 +229,11 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
     
     func isValidateCredential() -> Bool{
         if firstNameTF.text?.isBlank == true {
-            UtilityMethods.showAlert("Please Enter First Name", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter First Name".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         if lastNameTF.text?.isBlank == true {
-            UtilityMethods.showAlert("Please Enter Last Name", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter Last Name".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         if cardNoTF.text?.isBlank == true {
@@ -214,16 +242,16 @@ class AddCardVC: UIViewController,UICollectionViewDataSource,UICollectionViewDel
         }
         
         if expiryMonthTF.text?.isBlank == true {
-            UtilityMethods.showAlert("Please Enter Expiry Month", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter Expiry Month".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         
         if expiryYearTF.text?.isBlank == true {
-            UtilityMethods.showAlert("Please Enter Expiry Year", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter Expiry Year".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         if cvvTF.text?.isBlank == true{
-            UtilityMethods.showAlert("Please Enter CVV Number", tilte: "Warning!".localized, presentVC: self)
+            UtilityMethods.showAlert("Please Enter CVV Number".localized, tilte: "Warning!".localized, presentVC: self)
             return false
         }
         return true

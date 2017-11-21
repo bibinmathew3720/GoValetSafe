@@ -23,7 +23,12 @@ class CardCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.initialisation()
         // Initialization code
+    }
+    
+    func initialisation(){
+        self.setAsDefaultButton.setTitle("Set as default".localized, forState: .Normal)
     }
 
     @IBAction func setAsDefaultButtonaction(sender: AnyObject) {

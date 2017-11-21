@@ -75,7 +75,7 @@
             <connections>
                 <outlet property="cardIV" destination="pL0-7B-p5q" id="bej-yD-Tn6"/>
                 <outlet property="cardNoLabel" destination="qGR-Pz-iiS" id="pTQ-ht-evo"/>
-                <outlet property="setAsDefaultButton" destination="6Xt-zx-dne" id="Z1Q-8Y-ZVU"/>
+                <outlet property="setAsDefaultButton" destination="6Xt-zx-dne" id="y6c-Qg-Suh"/>
             </connections>
             <point key="canvasLocation" x="259.5" y="112.5"/>
         </collectionViewCell>

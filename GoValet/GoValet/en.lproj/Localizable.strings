@@ -56,3 +56,13 @@
 "CVV" = "CVV";
 "EXPIRY YEAR" = "EXPIRY YEAR";
 "EXPIRY MONTH" = "EXPIRY MONTH";
+"Set as default" = "Set as default";
+
+//Validations
+
+"Please Enter First Name" = "Please Enter First Name";
+"Please Enter Last Name" = "Please Enter Last Name";
+"Please Enter Card No" = "Please Enter Card No";
+"Please Enter Expiry Month" = "Please Enter Expiry Month";
+"Please Enter Expiry Year" = "Please Enter Expiry Year";
+"Please Enter CVV Number" = "Please Enter CVV Number";
