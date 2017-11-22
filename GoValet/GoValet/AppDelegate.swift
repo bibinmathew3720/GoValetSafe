@@ -53,23 +53,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        print("DEVICE TOKEN = \(deviceToken)")
-        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-        var tokenString = ""
+//        print("DEVICE TOKEN = \(deviceToken)")
+//        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+//        var tokenString = ""
+//        
+//        for i in 0..<deviceToken.length {
+//            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+//        }
+//        print("Device Token:", tokenString)
+//        NSLog("Device Token:")
+//
+//        NSLog(tokenString)
         
-        for i in 0..<deviceToken.length {
-            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-        }
-        print("Device Token:", tokenString)
-        NSLog("Device Token:")
+        var characterSet: NSCharacterSet = NSCharacterSet(charactersInString: "<>")
+        
+        let deviceTokenString: String = (deviceToken.description as NSString)
+            .stringByTrimmingCharactersInSet(characterSet)
+            .stringByReplacingOccurrencesOfString( " ", withString: "") as String
+        
+        print(deviceTokenString)
 
-        NSLog(tokenString)
-        NSUserDefaults.standardUserDefaults().setObject(tokenString, forKey: "DeviceToken")
-
+        NSUserDefaults.standardUserDefaults().setObject(deviceTokenString, forKey: "DeviceToken")
+        //let alert = UIAlertView(title: "alertView", message: deviceTokenString, delegate:nil, cancelButtonTitle:"Cancel", otherButtonTitles: "Done", "Delete")
+        //alert.show()
         let serviceManger = LoginServiceManager()
-        let deviceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
+       // let deviceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
 
-        serviceManger.sendDeviceToken(tokenString,deviceId:tokenString)
+        serviceManger.sendDeviceToken(deviceTokenString,deviceId:deviceTokenString)
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
