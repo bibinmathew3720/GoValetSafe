@@ -157,7 +157,7 @@ class SignUpViewController: UIViewController,TOCropViewControllerDelegate,UIText
         lNameTextFld.roundCornerWithvalue(2.0)
         mobileNumberContainerView.roundCornerValue(3.0)
         dobBtn.roundCornerTheme()
-        profileImageView.layer.cornerRadius = 45.0
+        profileImageView.layer.cornerRadius = 44.0
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         var image = UIImage(named: "logoSmall")
