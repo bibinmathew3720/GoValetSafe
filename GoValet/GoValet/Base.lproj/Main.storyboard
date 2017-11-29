@@ -866,7 +866,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Date of Birth">
+                                <state key="normal" title="Date of Birth (Optional)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -3477,20 +3477,20 @@
                                     <mask key="constraints">
                                         <exclude reference="5kA-b7-uxf"/>
                                         <exclude reference="kMC-L5-AFl"/>
-                                        <exclude reference="2Gh-06-CQ0"/>
-                                        <exclude reference="72C-YA-gZ1"/>
-                                        <exclude reference="Uwr-1W-nG6"/>
-                                        <exclude reference="dFm-bi-GXJ"/>
-                                        <exclude reference="3xk-Qu-7t2"/>
-                                        <exclude reference="a22-6G-akc"/>
-                                        <exclude reference="g6r-cb-t3J"/>
                                         <exclude reference="124-2a-T4Q"/>
                                         <exclude reference="TGJ-XL-Plh"/>
                                         <exclude reference="gSW-Un-B0B"/>
+                                        <exclude reference="3xk-Qu-7t2"/>
+                                        <exclude reference="a22-6G-akc"/>
+                                        <exclude reference="g6r-cb-t3J"/>
                                         <exclude reference="9eb-jz-VvE"/>
                                         <exclude reference="kHS-CU-fiX"/>
                                         <exclude reference="pvf-sf-Oqk"/>
                                         <exclude reference="tiD-ST-Dsl"/>
+                                        <exclude reference="2Gh-06-CQ0"/>
+                                        <exclude reference="72C-YA-gZ1"/>
+                                        <exclude reference="Uwr-1W-nG6"/>
+                                        <exclude reference="dFm-bi-GXJ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -3504,20 +3504,20 @@
                                     <mask key="constraints">
                                         <include reference="5kA-b7-uxf"/>
                                         <include reference="kMC-L5-AFl"/>
-                                        <include reference="2Gh-06-CQ0"/>
-                                        <include reference="72C-YA-gZ1"/>
-                                        <include reference="Uwr-1W-nG6"/>
-                                        <include reference="dFm-bi-GXJ"/>
-                                        <include reference="3xk-Qu-7t2"/>
-                                        <include reference="a22-6G-akc"/>
-                                        <include reference="g6r-cb-t3J"/>
                                         <include reference="124-2a-T4Q"/>
                                         <include reference="TGJ-XL-Plh"/>
                                         <include reference="gSW-Un-B0B"/>
+                                        <include reference="3xk-Qu-7t2"/>
+                                        <include reference="a22-6G-akc"/>
+                                        <include reference="g6r-cb-t3J"/>
                                         <include reference="9eb-jz-VvE"/>
                                         <include reference="kHS-CU-fiX"/>
                                         <exclude reference="pvf-sf-Oqk"/>
                                         <include reference="tiD-ST-Dsl"/>
+                                        <include reference="2Gh-06-CQ0"/>
+                                        <include reference="72C-YA-gZ1"/>
+                                        <include reference="Uwr-1W-nG6"/>
+                                        <include reference="dFm-bi-GXJ"/>
                                     </mask>
                                 </variation>
                             </view>
