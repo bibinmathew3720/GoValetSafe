@@ -10,8 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-var baseUrl = "http://govalet.me/"
-
+//var baseUrl = "http://govalet.me/"
+var baseUrl = "http://govalet.me/test/"
 
 class RestResponse : NSObject {
     var response : JSON?

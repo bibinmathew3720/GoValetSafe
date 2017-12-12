@@ -20,11 +20,16 @@ extension HistoryViewController: WebServiceTaskManagerProtocol,UIImagePickerCont
         //            self.showAlert("Warning!".localized, message: errmsg)
         //            return
         //        }
+        print(response.data)
+        print(response.error)
         if response.data == nil{
-            let errmsg : String = response.error! as String
+            if(!(response.error == nil)){
+                let errmsg : String = response.error! as String
+                self.showAlert("Warning!".localized, message: errmsg)
+            }
             //            self.successView.hidden = false
             
-            self.showAlert("Warning!".localized, message: errmsg)
+            
         }else{
             if let managerType = manager as? CommonTaskManager{
                 if let historyArray = response.data?.responseModel as? [History] {

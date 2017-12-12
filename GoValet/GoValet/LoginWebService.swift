@@ -41,7 +41,17 @@ class LoginWebService: BaseWebService {
     }
     
     func sendDeviceTokenService(token:String,deviceId:String){
-        parameters = ["gcm_ios_id":deviceId]
+        let userType:String = (UserInfo.currentUser()?.userType)! as String
+        var finalCustomerType:String = ""
+        if(userType == "valet_manager"){
+            finalCustomerType = "manager"
+        }
+        else{
+            finalCustomerType = "customer"
+        }
+        
+        parameters = ["gcm_ios_id":deviceId,"user_type":finalCustomerType]
+        print(parameters)
         self.url = "\(baseUrl)user/update_gcm_ios_id"
         POST()
     }

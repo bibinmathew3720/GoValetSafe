@@ -12,6 +12,15 @@ import UIKit
 class CommonWebService: BaseWebService {
 
     func getHistoryList(){
+        var params = [String: AnyObject]()
+        let currentLanguage = NSLocale.preferredLanguages()[0]
+        if currentLanguage == "ar-US"{
+            params["lang"] = "arabic"
+        }
+        else{
+            params["lang"] = "eng"
+        }
+        self.parameters = params
         self.url = "\(baseUrl)request/history"
         POST()
     }
